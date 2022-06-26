@@ -7,20 +7,28 @@ const HomePage = () => {
 
     return (
         <>
-            <header className='homePageHeader'></header>
-            <main className='homePageMain'>
+            <header className='homePageHeader'>
                 <div className="topContainer">
                     <div className="titleContainer">
                         <h1 className='title'>Nicolas Castera</h1>
                         <h2 className="skill">Frontend developper</h2>
                     </div>
                     <div className="scrollContainer">
-                        <h4 className="scroll">SCROLL</h4>
+                        <h4 className="scroll">
+                            <span className='s'>S</span>
+                            <span className='c'>C</span>
+                            <span className='r'>R</span>
+                            <span className='o'>O</span>
+                            <span className='l'>L</span>
+                            <span className='l'>L</span>
+                        </h4>
                     </div>
                 </div>
+            </header>
+            <main className='homePageMain'>
                 <SkillText show={showSkillText}/>
                 <div className="bottomContainer">
-                    <div className="reaseauxContainer">
+                    <div className="reseauxContainer">
                         <button className="reseaux github">Github</button>
                         <button className="reseaux instagram">Instagram</button>
                         <button className="reseaux tweeter">Tweeter</button>
