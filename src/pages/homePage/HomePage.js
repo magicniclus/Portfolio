@@ -29,18 +29,20 @@ const HomePage = () => {
         }
     }, [window.scrollY])
     
-    Observer.create({
-        target: homePage.current,
-        type: "wheel",
-        onDown: ()=>{
-            gsap.to(window, {duration: 1, scrollTo: locationTwo});
-        },
-        onUp: ()=>{
-            gsap.to(window, {duration: 1, scrollTo: locationOne});
-        },
-        tolerance: 10,
-        preventDefault: true,
-    })
+    if(makeScroll){
+        Observer.create({
+            target: homePage.current,
+            type: "wheel",
+            onDown: ()=>{
+                gsap.to(window, {duration: 0.8, scrollTo: locationTwo, ease:"power1.out"});
+            },
+            onUp: ()=>{
+                gsap.to(window, {duration: 0.8, scrollTo: locationOne, ease:"power1.out"});
+            },
+            tolerance: 10,
+            preventDefault: true,
+        })
+    }
 
     const upTo = ()=>{
         console.log("up");
