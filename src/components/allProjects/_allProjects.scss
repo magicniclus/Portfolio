@@ -1,0 +1,101 @@
+@import "../../styles/settings.scss";
+
+.allProjectsContainer{
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    .projects{
+        min-height: 75%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .projectContainer{
+            cursor: pointer;
+            background-color: $darkPrimary;
+            width: 100%;
+            height: 15%;
+            z-index: 30;
+            transition: height;
+            transition-timing-function: ease-out;
+            transition-duration: 0.8s;
+            .imgContainer{
+                width: 80%;
+                height: 100%;
+                background-position: 25% 40%;
+                background-size: cover;
+                filter: grayscale(100%);
+                transition: filter;
+                transition-timing-function: ease-out;
+                transition-duration: 0.8s;
+            }
+        }
+        .one{
+            .imgContainer{
+                background-image: url("../../assets/terabois/AdobeStock_191224000_Preview.jpeg");
+            }
+        }
+        .two{
+            .imgContainer{
+                background-image: url("../../assets/terabois/pexels-magda-ehlers-2114014.jpg");
+            }
+        }
+        .terabois{
+            .imgContainer{
+                background-image: url("../../assets/terabois/AdobeStock_242300689_Preview.jpeg");
+            }
+        }
+        .four{
+            .imgContainer{
+                background-image: url("../../assets/terabois/pexels-philippe-donn-1242764.jpg");
+            }
+        }
+        .projectContainer:hover{
+            height: 30%;
+            .imgContainer{
+                filter: none;
+            }
+        }
+    }
+
+    .title{
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h2{
+            font-size: $h2;
+            font-weight: $fWH2;
+            display: flex;
+            background-color: $clearPrimary;
+            z-index: 3;
+        }
+    }
+    .title:before{
+        content: "";
+        position: absolute;
+        transform: translate(0%, 50%);
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        background-color: $darkPrimary;
+        z-index: 1;
+    }
+    .title:after{
+        content: "";
+        position: absolute;
+        transform: translate(0%, -50%);
+        top: 50%;
+        width: 30%;
+        height: 3.5rem;
+        background-color: $clearPrimary;
+        z-index: 1;
+    }
+}
