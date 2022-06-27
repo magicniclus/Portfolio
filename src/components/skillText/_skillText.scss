@@ -15,8 +15,24 @@
         text-align: center;
         display: flex;
         flex-direction: column;
-        .reactText{
-            color: #68693f;
+        .show{
+            animation: colorChange;
+            animation-duration: 2s;
+            animation-timing-function:ease-in;
         }
+    }
+}
+
+@keyframes colorChange {
+    0%{
+        color: $darkPrimary;
+    }
+
+    50%{
+        color: $secondaryYellow;
+    }
+
+    100%{
+        color: $darkPrimary;  
     }
 }
