@@ -26,6 +26,29 @@
                 text-align: center;
                 display: flex;
                 flex-direction: column;
+                position: relative;
+            }
+            h4:before{
+                content: "";
+                height: 70%;
+                width: 5px;
+                background-color: $darkPrimary;
+                position: absolute;
+                left: -20px;
+                margin-top: 1rem;
+            }
+            h4:after{
+                content: "";
+                display : inline-block;
+                height : 0;
+                width : 0;
+                border-top : 15px solid $darkPrimary;
+                border-right : 9px solid transparent;
+                border-left : 9px solid transparent;
+                position: absolute;
+                left: -27px;
+                bottom: 0;
+                margin-bottom: 1rem;
             }
         }
     }
@@ -73,14 +96,13 @@
                 font-size: $btn;
                 border: none;
                 background-color: $clearPrimary;
-                color: $secondaryYellow;
                 text-align: left;
                 display: flex;
                 align-items: center;
-                transition-duration: 0.5s;
+                transition-duration: 0.2s;
             }
             button:hover{
-                transform: scale(1.05);
+                color: $secondaryYellow;
             }
         }
     }
