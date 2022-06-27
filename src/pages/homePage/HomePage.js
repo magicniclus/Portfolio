@@ -4,6 +4,7 @@ import './_homePage.scss';
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import {Observer} from "gsap/Observer";
+import AllProjects from '../../components/allProjects/AllProjects';
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(Observer);
@@ -12,7 +13,6 @@ const HomePage = () => {
     const [showSkillText, setShowSkillText] = useState(true)
     const [makeScroll, setMakeScroll] = useState(true)
 
-    let globalPosition;
     let locationOne ;
     let locationTwo;
     
@@ -51,7 +51,7 @@ const HomePage = () => {
     const sectionTwo = ()=>{
         return(
             <section className="sectionTwo">
-                <SkillText ref={sectionTwoRef} show={showSkillText}/>
+                <AllProjects />
             </section>
         )
     }
@@ -64,16 +64,6 @@ const HomePage = () => {
                         <h1 className='title'>Nicolas Castera</h1>
                         <h2 className="skill">Frontend developper</h2>
                     </div>
-                    {/* <div className="scrollContainer">
-                        <h4 className="scroll">
-                            <span className='s'>S</span>
-                            <span className='c'>C</span>
-                            <span className='r'>R</span>
-                            <span className='o'>O</span>
-                            <span className='l'>L</span>
-                            <span className='l'>L</span>
-                        </h4>
-                    </div> */}
                 </div>
                 <div className="bottomContainer">
                     <div className="reseauxContainer">
