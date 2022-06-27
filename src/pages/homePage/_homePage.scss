@@ -76,7 +76,7 @@
                 height: 38px;
                 font-size: $btn;
                 border: none;
-                background-color: $clearPrimary;
+                background-color: transparent;
                 text-align: left;
                 display: flex;
                 align-items: center;
@@ -100,6 +100,7 @@
                 display: flex;
                 align-items: center;
                 transition-duration: 0.2s;
+                color: $secondaryYellow;
             }
             button:hover{
                 color: $secondaryYellow;
