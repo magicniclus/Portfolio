@@ -80,6 +80,9 @@
                 text-align: left;
                 display: flex;
                 align-items: center;
+                transition: color;
+                transition-duration: 0.5s;
+                transition-timing-function: ease-out;
             }
             button:hover{
                 color: $secondaryYellow;
@@ -109,7 +112,6 @@
     }
 }
 .homePageMain{
-    // scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
