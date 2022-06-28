@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
     .projects{
         min-height: 75%;
         width: 100%;
@@ -40,41 +39,42 @@
                 z-index: 100;
                 width: 20%;
                 display: flex;
-                overflow: hidden;
                 .description{
-                    position: relative;
                     height: 100%;
-                    width: 4%;
                     display: flex;
-                    overflow: hidden;
-                    margin-left: 45%;
-                    transition: width;
-                    transition-duration: 0.8s;
-                    transition-timing-function: ease-out;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-left: 30%;
                     .bottomContainer{
+                        position: relative;
                         display: flex;
                         justify-content: space-between;
-                        display: flex;
                         align-items: center;
-                        min-width: 5rem;
+                        width: 5rem;
+                        z-index: 78;
                         p{
                             font-size: $pSecondary;
                             font-weight: $fWP;
                             color: $darkPrimary;
                         }
                     }
-                }
-                .description::before{
-                    content: "";
-                    position: absolute;
-                    transform: translate(0%, 50%);
-                    top: 50%;
-                    width: 2rem;
-                    left: 0.8rem;
-                    height: 1px;
-                    background-color: $darkPrimary;
-                    z-index: 1;
-                    opacity: 1;
+                    .bottomContainer::before{
+                        content: "";
+                        position: absolute;
+                        top: 46%;
+                        width: 2rem;
+                        left: 0.9rem;
+                        height: 1px;
+                        background-color: $darkPrimary;
+                    }
+                    .topContainer{
+                        display: none;
+                        h3{
+                            margin: 0;
+                            font-size: $h3;
+                            font-weight: $fWH2;
+                        }
+                    }
                 }
             }
         }
@@ -105,7 +105,14 @@
             }
             .descriptionContainer{
                 .description{
-                    width: 55%;
+                    .topContainer{
+                        display: flex;
+                        h3{
+                            margin: 0;
+                            font-size: $h3;
+                            font-weight: $fWH2;
+                        }
+                    }
                 }
             }
         }
@@ -144,17 +151,5 @@
         height: 3.5rem;
         background-color: $clearPrimary;
         z-index: 1;
-    }
-}
-
-@keyframes opacityWidth {
-    0%{
-        opacity: 0;
-        width: 0;
-    }
-
-    100%{
-        width: 2rem;
-        opacity: 1;
     }
 }
