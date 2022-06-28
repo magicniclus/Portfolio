@@ -9,8 +9,13 @@ const AllProjects = () => {
                     <div className="imgContainer"></div>
                     <div className="descriptionContainer">
                         <div className="description">
+                            <div className="topContainer">
+                                <h3 className="projectTitle">
+                                    Rêve
+                                </h3>
+                            </div>
                             <div className="bottomContainer">
-                                <p>1</p>
+                                <p className='number'>1</p>
                                 <p className='date'>2022</p>
                             </div>
                         </div>
@@ -20,6 +25,11 @@ const AllProjects = () => {
                     <div className="imgContainer"></div>
                     <div className="descriptionContainer">
                         <div className="description">
+                            <div className="topContainer">
+                                <h3 className="projectTitle">
+                                    KosiKaza
+                                </h3>
+                            </div>
                             <div className="bottomContainer">
                                 <p className='number'>2</p>
                                 <p className='date'>2022</p>
@@ -31,8 +41,13 @@ const AllProjects = () => {
                     <div className="imgContainer"></div>
                     <div className="descriptionContainer">
                         <div className="description">
+                            <div className="topContainer">
+                                <h3 className="projectTitle">
+                                    TeraBois
+                                </h3>
+                            </div>
                             <div className="bottomContainer">
-                                <p>3</p>
+                                <p className='number'>3</p>
                                 <p className='date'>2022</p>
                             </div>
                         </div>
@@ -42,8 +57,13 @@ const AllProjects = () => {
                     <div className="imgContainer"></div>
                     <div className="descriptionContainer">
                         <div className="description">
+                            <div className="topContainer">
+                                <h3 className="projectTitle">
+                                    JustMining
+                                </h3>
+                            </div>
                             <div className="bottomContainer">
-                                <p>4</p>
+                                <p className='number'>4</p>
                                 <p className='date'>2022</p>
                             </div>
                         </div>
