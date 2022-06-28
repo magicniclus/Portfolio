@@ -16,7 +16,12 @@ const AllProjects = () => {
                             </div>
                             <div className="bottomContainer">
                                 <p className='number'>1</p>
-                                <p className='date'>2022</p>
+                                <p className='date'>
+                                    <span className='one'>2</span>
+                                    <span className='two'>0</span>
+                                    <span className='three'>2</span>
+                                    <span className='four'>2</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -32,7 +37,12 @@ const AllProjects = () => {
                             </div>
                             <div className="bottomContainer">
                                 <p className='number'>2</p>
-                                <p className='date'>2022</p>
+                                <p className='date'>
+                                    <span className='one'>2</span>
+                                    <span className='two'>0</span>
+                                    <span className='three'>2</span>
+                                    <span className='four'>2</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +58,12 @@ const AllProjects = () => {
                             </div>
                             <div className="bottomContainer">
                                 <p className='number'>3</p>
-                                <p className='date'>2022</p>
+                                <p className='date'>
+                                    <span className='one'>2</span>
+                                    <span className='two'>0</span>
+                                    <span className='three'>2</span>
+                                    <span className='four'>2</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -64,7 +79,12 @@ const AllProjects = () => {
                             </div>
                             <div className="bottomContainer">
                                 <p className='number'>4</p>
-                                <p className='date'>2022</p>
+                                <p className='date'>
+                                    <span className='one'>2</span>
+                                    <span className='two'>0</span>
+                                    <span className='three'>2</span>
+                                    <span className='four'>2</span>
+                                </p>
                             </div>
                         </div>
                     </div>
