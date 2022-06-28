@@ -13,7 +13,7 @@
     justify-content: space-between;
     top: 0;
     .topContainer{
-        width: 90%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -60,10 +60,10 @@
         }
     }
     .bottomContainer{
-        width: 90%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         display: flex;
         justify-content: space-between;
         .reseauxContainer{
@@ -93,7 +93,7 @@
             button{
                 cursor: pointer;
                 height: 38px;
-                font-size: $btn;
+                font-size: calc($btn + 50%);
                 border: none;
                 background-color: $clearPrimary;
                 text-align: left;
