@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     top: 0;
+    z-index: 2;
     .topContainer{
         width: 95%;
         margin-left: auto;
@@ -67,14 +68,17 @@
         display: flex;
         justify-content: space-between;
         .reseauxContainer{
+            z-index: 17;
             display: flex;
             flex-direction: column;
             height: 70%;
             justify-content: space-between;
             button{
+                font-weight: 100;
                 cursor: pointer;
                 height: 38px;
-                font-size: $btn;
+                font-size: $h2;
+                font-weight: 100;
                 border: none;
                 background-color: transparent;
                 text-align: left;
@@ -93,11 +97,13 @@
             flex-direction: column;
             height: 95%;
             justify-content: end;
+            z-index: 17;
             button{
                 cursor: pointer;
                 height: 38px;
                 font-size: calc($btn + 50%);
                 border: none;
+                font-weight: 100;
                 background-color: $clearPrimary;
                 text-align: left;
                 display: flex;
@@ -115,7 +121,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
     .sectionOne, .sectionTwo{
+        z-index: 10;
         height: 100vh;
         display: flex;
         justify-content: center;
