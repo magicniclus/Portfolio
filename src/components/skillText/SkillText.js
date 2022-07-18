@@ -24,25 +24,20 @@ const SkillText = (props) => {
 
     return (
         <div className={show ? "skillTextContainer" : "skillTextContainer hidden"}>
-            <p>
-                <span className='top'>
-                    It is a long established fact that a reader will be distracted by the
-                    readable content <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span> a page when lookingat its layout. The point of using
-                    Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                    as opposed to using 'Content here.
-                    'lorem ipsum' will uncover many web sites still in <span className={light === "gsap" ? 'gsapText show' : "gsapText"}>Gsap</span> infancy. 
-                </span>
-                <span className='middle'>
-                    Now use Many desktop public <span className={light === "react" ? 'reactText show' : "reactText"}>react</span> packages and web page editors 
-                </span>
-                <span className='bottom'>
-                    It is a long established fact that a <span className={light === "jest" ? 'jestText show' : "jestText"}>jest</span> will be distracted by the
-                    now use Lorem Ipsum as their default model text, and a search for
-                    'lorem ipsum' will uncover many web sites still in <span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> infancy. Various 
-                    versions have evolved over the years, sometimes by accident, sometimes on 
-                    purpose.
-                </span>
-            </p>
+            <div className='lignContainer'>
+                    <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span> a page </p>
+                    <p className="lign lignTwo">when lookingat its layout. The point of using</p> 
+                    <p className="lign lignThree">Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
+                    <p className="lign lignFour">as opposed to using 'Content here.</p>
+                    <p className="lign lignFive">'lorem ipsum' will uncover many web sites still in <span className={light === "gsap" ? 'gsapText show' : "gsapText"}>Gsap</span> infancy. </p>
+                    <p className="lign lignSix">Now use Many desktop public <span className={light === "react" ? 'reactText show' : "reactText"}>react</span> packages and web page editors </p> 
+                    <p className="lign lignSeven">It is a long established fact that a <span className={light === "jest" ? 'jestText show' : "jestText"}>jest</span> will be distracted by the</p>
+                    <p className="lign lignEight">now use Lorem Ipsum as their default model text, and a search for</p>
+                    <p className="lign lignNine">'lorem ipsum' will uncover many web sites still in <span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> infancy. Various </p>
+                    <p className="lign lignTen">versions have evolved over the years, sometimes by accident</p>
+                    <p className="lign lignEleven">purpose.</p>
+            </div>
+            <img src=".../.../" alt="" />
         </div>
     );
 };
