@@ -4,6 +4,9 @@ import "./_allProjects.scss"
 const AllProjects = () => {
     return (
         <div className='allProjectsContainer'>
+        <div className="title">
+            <h2>2/<span>Projects</span></h2>
+        </div>
             <div className="projects">
                 <div className="projectContainer one">
                     <div className="imgContainer"></div>
@@ -89,9 +92,6 @@ const AllProjects = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="title">
-                <h2>Projects</h2>
             </div>
         </div>
     );
