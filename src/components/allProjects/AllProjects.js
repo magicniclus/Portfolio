@@ -18,7 +18,7 @@ const AllProjects = () => {
                                 </h3>
                             </div>
                             <div className="bottomContainer">
-                                <p className='number'>1</p>
+                                <p className='number'>a</p>
                                 <p className='date'>
                                     <span className='one'>2</span>
                                     <span className='two'>0</span>
@@ -39,7 +39,7 @@ const AllProjects = () => {
                                 </h3>
                             </div>
                             <div className="bottomContainer">
-                                <p className='number'>2</p>
+                                <p className='number'>b</p>
                                 <p className='date'>
                                     <span className='one'>2</span>
                                     <span className='two'>0</span>
@@ -60,7 +60,7 @@ const AllProjects = () => {
                                 </h3>
                             </div>
                             <div className="bottomContainer">
-                                <p className='number'>3</p>
+                                <p className='number'>c</p>
                                 <p className='date'>
                                     <span className='one'>2</span>
                                     <span className='two'>0</span>
@@ -81,7 +81,7 @@ const AllProjects = () => {
                                 </h3>
                             </div>
                             <div className="bottomContainer">
-                                <p className='number'>4</p>
+                                <p className='number'>d</p>
                                 <p className='date'>
                                     <span className='one'>2</span>
                                     <span className='two'>0</span>
