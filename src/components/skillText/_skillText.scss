@@ -2,38 +2,41 @@
 
 :root{
     // All lign
-    --lignOne-width: 804px;
-    --lignTwo-width: 480px;
-    --lignThree-width: 771px;
-    --lignFour-width: 382px;
-    --lignFive-width: 673px;
-    --lignSix-width: 738px;
-    --lignSeven-width: 665px;
-    --lignEight-width: 723px;
-    --lignNine-width: 753px;
+    --lignOne-width: 650px;
+    --lignTwo-width: 681px;
+    --lignThree-width: 668px;
+    --lignFour-width: 684px;
+    --lignFive-width: 697px;
+    --lignSix-width: 666px;
+    --lignSeven-width: 732px;
+    --lignEight-width: 726px;
+    --lignNine-width: 683px;
     --lignTen-width: 658px;
-    --lignEleven-width: 98px;
 
     // lignContainer
     --lignContainer-width: 100%;
 }
 
 .skillTextContainer{
-    width: 90%;
+    z-index: 10;
+    width: 95%;
     margin-right: auto;
     margin-left: auto;
-    height: 70%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: width 1s ease-in-out;
     .lignContainer{
+        cursor: pointer;
+        height: 80%;
         width: var(--lignContainer-width);
         font-size: $p;
         font-weight: $fWP;
         text-align: center;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         .show{
             animation: colorChange;
             animation-duration: 2s;
@@ -41,6 +44,7 @@
         }
         .lignOne{
             transition: margin-left 0.4s ease-in-out ;
+            width: var(--lignOne-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignOne-width)) / 2);
         }
@@ -98,18 +102,27 @@
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignTen-width)) / 2);
         }
-        .lignEleven{
-            transition: margin-left 0.8s ease-in-out 1s;
-            width: var(--lignEleven-width);
-            margin-right: auto;
-            margin-left: calc((var(--lignContainer-width) - var(--lignEleven-width)) / 2);
-        }
     }
+    .imgContainer{
+        background-image: url("../../assets/me/pexels-italo-melo-2379005.jpg");
+        opacity: 0;
+        width: 0;
+        height: 0;
+        background-position: 25% 40%;
+        filter: grayscale(100%);
+        transition: width ease-in-out 0.9s, height 0.4s ease-in-out 0.9s;
+        background-size: cover;
+    } 
 }
 .skillTextContainer:hover{
-    width: 90%;
     .lign{
         margin-left: 0;
+    }
+    .imgContainer{
+        opacity: 1;
+        display: flex;
+        height: 80%;
+        width: 80%;
     }
 }
 
