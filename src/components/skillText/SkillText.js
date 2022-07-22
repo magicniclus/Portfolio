@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef  } from 'react';
 import "./_skillText.scss"
+import { gsap } from "gsap";
 
 const SkillText = (props) => {
-    const showLight = ["js", "gsap", "react", "jest", "sass"]
-    const show = props.show
+    const showLight = ["js", "gsap", "react", "jest", "sass"];
+    const animation = props.animation;
 
-    const [light, setLight] = useState("")
-    
+    const [showSkillText, setShowSkillText] = useState(false);
+
+    const [light, setLight] = useState("");
+
+    const hRef = useRef(null);
+    const iRef = useRef(null);
+    const yRef = useRef(null);
+    const oRef = useRef(null);
+    const uRef = useRef(null);
+    const pointRef = useRef(null);
+
     useEffect(()=>{
         udateLight()
     }, [])
@@ -23,7 +33,19 @@ const SkillText = (props) => {
     }
 
     return (
-        <div className={show ? "skillTextContainer" : "skillTextContainer hidden"}>
+        <div onMouseEnter={()=>setShowSkillText(true)} className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
+            <div className="hiYou">
+                <div className='hiYouContainer'>
+                    <div ref={hRef} className= "one you">h</div>
+                    <div ref={iRef} className='two you'>i</div>
+                    <div className='three you'></div>
+                    <div ref={yRef} className='four you'>Y</div>
+                    <div ref={oRef} className='five you'>o</div>
+                    <div ref={uRef} className='six you'>u</div>
+                    <div ref={pointRef} className='seven you'>.</div>
+                      
+                </div>
+            </div>
             <div className='lignContainer'>
                     <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                     <p className="lign lignTwo">when lookingat its layout. The point of using more-or-less sites</p> 
