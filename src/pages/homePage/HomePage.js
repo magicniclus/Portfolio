@@ -10,15 +10,22 @@ gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(Observer);
 
 const HomePage = () => {
-    const [showSkillText, setShowSkillText] = useState(true)
-    const [makeScroll, setMakeScroll] = useState(true)
+    const [showSkillText, setShowSkillText] = useState(true);
+    const [makeScroll, setMakeScroll] = useState(true);
 
-    let locationOne ;
+    let locationOne;
     let locationTwo;
     
     const sectionOneRef = useRef(null)
     const sectionTwoRef = useRef(null)
     const homePage = useRef(null)
+
+    useEffect(()=>{
+        window.addEventListener('load', (event) => {
+            console.log('page is fully loaded');
+          });
+    }, [])
+
     
     useEffect(()=>{
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
@@ -42,10 +49,6 @@ const HomePage = () => {
             tolerance: 10,
             preventDefault: true,
         })
-    }
-
-    const upTo = ()=>{
-        console.log("up");
     }
 
     const sectionTwo = ()=>{
