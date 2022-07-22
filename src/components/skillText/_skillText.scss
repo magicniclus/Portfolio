@@ -15,11 +15,15 @@
 
     // lignContainer
     --lignContainer-width: 100%;
+
+    //font-size responsive
+    --res-fontSize: calc(0.01 * 12vmin)
 }
 
 .skillTextContainer{
     z-index: 10;
     width: 95%;
+    max-width: 1450px;
     margin-right: auto;
     margin-left: auto;
     height: 50%;
@@ -27,6 +31,32 @@
     justify-content: center;
     align-items: center;
     transition: width 1s ease-in-out;
+    position: relative;
+    .hiYou{
+        position: absolute;
+        width: 90vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .hiYouContainer{
+            display: flex;
+            .you{
+                opacity: 0;
+                font-size: clamp(350px, 23vw, 23vw );
+                color: $darkTransparancy;
+                animation-name: rotateReact;
+                animation-duration: 0.7s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+            }
+            .one, .three, .five, .seven{
+                animation-delay: 0.3s;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
     .lignContainer{
         cursor: pointer;
         height: 80%;
@@ -43,80 +73,104 @@
             animation-timing-function:ease-in;
         }
         .lignOne{
-            transition: margin-left 0.4s ease-in-out ;
             width: var(--lignOne-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignOne-width)) / 2);
         }
         .lignTwo{
-            transition: margin-left 0.4s ease-in-out 0.1s;
             width: var(--lignTwo-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignTwo-width)) / 2);
         }
         .lignThree{
-            transition: margin-left 0.4s ease-in-out 0.2s;
             width: var(--lignThree-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignThree-width)) / 2);
         }
         .lignFour{
-            transition: margin-left 0.4s ease-in-out 0.3s;
             width: var(--lignFour-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignFour-width)) / 2);
         }
         .lignFive{
-            transition: margin-left 0.4s ease-in-out 0.4s;
             width: var(--lignFive-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignFive-width)) / 2);
         }
         .lignSix{
-            transition: margin-left 0.4s ease-in-out 0.5s;
             width: var(--lignSix-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignSix-width)) / 2);
         }
         .lignSeven{
-            transition: margin-left 0.4s ease-in-out 0.6s;
             width: var(--lignSeven-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignSeven-width)) / 2);
         }
         .lignEight{
-            transition: margin-left 0.4s ease-in-out 0.7s;
             width: var(--lignEight-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignEight-width)) / 2);
         }
         .lignNine{
-            transition: margin-left 0.4s ease-in-out 0.8s;
             width: var(--lignNine-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignNine-width)) / 2);
         }
         .lignTen{
-            transition: margin-left 0.4s ease-in-out 0.9s;
             width: var(--lignTen-width);
             margin-right: auto;
             margin-left: calc((var(--lignContainer-width) - var(--lignTen-width)) / 2);
         }
     }
     .imgContainer{
+        z-index: 2;
         background-image: url("../../assets/me/pexels-italo-melo-2379005.jpg");
         opacity: 0;
         width: 0;
         height: 0;
         background-position: 25% 40%;
         filter: grayscale(100%);
-        transition: width ease-in-out 0.9s, height 0.4s ease-in-out 0.9s;
+        transition: width ease-in-out 0.9s, height 0.4s ease-in-out 0.7s;
         background-size: cover;
     } 
 }
-.skillTextContainer:hover{
+
+.visible{
     .lign{
-        margin-left: 0;
+        animation-name: visibleTransitionLign;
+        animation-duration: 0.4s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+    }
+    .lignOne{
+    }
+    .lignTwo{
+        animation-delay: 0.1s;
+    }
+    .lignThree{
+        animation-delay: 0.2s;
+    }
+    .lignFour{
+        animation-delay: 0.3s;
+    }
+    .lignFive{
+        animation-delay: 0.4s;
+    }
+    .lignSix{
+        animation-delay: 0.5s;
+    }
+    .lignSeven{
+        animation-delay: 0.6s;
+    }
+    .lignEight{
+        animation-delay: 0.7s;
+    }
+    .lignNine{
+        animation-delay: 0.8s;
+    }
+    .lignTen{
+        animation-delay: 0.9s;
     }
     .imgContainer{
         opacity: 1;
@@ -137,5 +191,33 @@
 
     100%{
         color: $darkPrimary;  
+    }
+}
+
+@keyframes visibleTransitionLign {
+    0%{
+        margin-left: calc((var(--lignContainer-width) - var(--lignOne-width)) / 2);
+    }
+    100%{
+        margin-left: 0;
+    }
+}
+
+@keyframes rotateReact {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes transitionRotateReact {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        transform: rotateY(720deg);
     }
 }
