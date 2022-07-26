@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef  } from 'react';
 import "./_skillText.scss"
 import { gsap } from "gsap";
+import moi from "../../assets/me/moi-optimizate.jpg"
 
 const SkillText = (props) => {
     const showLight = ["js", "gsap", "react", "jest", "sass"];
@@ -33,7 +34,7 @@ const SkillText = (props) => {
     }
 
     return (
-        <div onMouseEnter={()=>setShowSkillText(true)} className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
+        <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
             <div className="hiYou">
                 <div className='hiYouContainer'>
                     <div ref={hRef} className= "one you">h</div>
@@ -46,7 +47,7 @@ const SkillText = (props) => {
                       
                 </div>
             </div>
-            <div className='lignContainer'>
+            <div  onMouseEnter={()=>setShowSkillText(true)}  className='lignContainer'>
                 <div className="lignOneContainer container">
                     <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                 </div> 
@@ -78,7 +79,9 @@ const SkillText = (props) => {
                     <p className="lign lignTen">versions have evolved over the years, sometimes by accident</p>
                 </div>
             </div>
-            <div className="imgContainer"></div>
+            <div className="imgContainer">
+                <img src={moi} alt="Nicolas Castera" />
+            </div>
         </div>
     );
 };
