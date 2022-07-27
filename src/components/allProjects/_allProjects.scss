@@ -16,101 +16,101 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        .projectContainer{
-            cursor: pointer;
-            width: 100%;
-            height: 15%;
-            z-index: 30;
-            display: flex;
-            justify-content: space-between;
-            transition: height;
-            transition-timing-function: ease-out;
-            transition-duration: 0.8s;
-            .imgContainer{
-                width: 80%;
-                height: 100%;
-                background-position: 25% 40%;
-                background-size: cover;
-                filter: grayscale(100%);
-                transition: filter;
-                transition-timing-function: ease-out;
-                transition-duration: 0.8s;
-            }
-            .descriptionContainer{
-                z-index: 100;
-                width: 20%;
-                display: flex;
-                .description{
-                    height: 100%;
-                    max-height: 5rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    margin-left: 30%;
-                    .bottomContainer{
-                        position: relative;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        width: 5rem;
-                        z-index: 78;
-                        p{
-                            font-size: $pSecondary;
-                            font-weight: $fWP;
-                            color: $darkPrimary;
-                        }
-                        .date{
-                            .one, .two, .three, .four{
-                                opacity: 0;
-                            }
-                        }
-                    }
-                    .bottomContainer::before{
-                        content: "";
-                        position: absolute;
-                        top: 46%;
-                        left: 0.9rem;
-                        height: 1px;
-                        background-color: $darkPrimary;
-                    }
-                    .topContainer{
-                        height: 0;
-                        overflow: hidden;
-                        h3{
-                            margin: 0;
-                            font-size: $h3;
-                            font-weight: $fWH2;
-                            opacity: 0;
-                            animation-name: titleApparition;
-                            animation-duration: 0.8s;
-                            animation-timing-function: ease-out;
-                            animation-fill-mode: forwards;
-                            animation-delay: 1s;
-                        }
-                    }
-                }
-            }
-        }
-        .one{
-            .imgContainer{
-                background-image: url("../../assets/terabois/AdobeStock_191224000_Preview.jpeg");
-            }
-        }
-        .two{
-            .imgContainer{
-                background-image: url("../../assets/terabois/pexels-magda-ehlers-2114014.jpg");
-            }
-        }
-        .terabois{
-            .imgContainer{
-                background-image: url("../../assets/terabois/AdobeStock_242300689_Preview.jpeg");
-            }
-        }
-        .four{
-            .imgContainer{
-                background-image: url("../../assets/terabois/pexels-philippe-donn-1242764.jpg");
-            }
-        }
+        // .projectContainer{
+        //     cursor: pointer;
+        //     width: 100%;
+        //     height: 15%;
+        //     z-index: 30;
+        //     display: flex;
+        //     justify-content: space-between;
+        //     transition: height;
+        //     transition-timing-function: ease-out;
+        //     transition-duration: 0.8s;
+        //     .imgContainer{
+        //         width: 80%;
+        //         height: 100%;
+        //         background-position: 25% 40%;
+        //         background-size: cover;
+        //         filter: grayscale(100%);
+        //         transition: filter;
+        //         transition-timing-function: ease-out;
+        //         transition-duration: 0.8s;
+        //     }
+        //     .descriptionContainer{
+        //         z-index: 100;
+        //         width: 20%;
+        //         display: flex;
+        //         .description{
+        //             height: 100%;
+        //             max-height: 5rem;
+        //             display: flex;
+        //             flex-direction: column;
+        //             justify-content: center;
+        //             margin-left: 30%;
+        //             .bottomContainer{
+        //                 position: relative;
+        //                 display: flex;
+        //                 justify-content: space-between;
+        //                 align-items: center;
+        //                 width: 5rem;
+        //                 z-index: 78;
+        //                 p{
+        //                     font-size: $pSecondary;
+        //                     font-weight: $fWP;
+        //                     color: $darkPrimary;
+        //                 }
+        //                 .date{
+        //                     .one, .two, .three, .four{
+        //                         opacity: 0;
+        //                     }
+        //                 }
+        //             }
+        //             .bottomContainer::before{
+        //                 content: "";
+        //                 position: absolute;
+        //                 top: 46%;
+        //                 left: 0.9rem;
+        //                 height: 1px;
+        //                 background-color: $darkPrimary;
+        //             }
+        //             .topContainer{
+        //                 height: 0;
+        //                 overflow: hidden;
+        //                 h3{
+        //                     margin: 0;
+        //                     font-size: $h3;
+        //                     font-weight: $fWH2;
+        //                     opacity: 0;
+        //                     animation-name: titleApparition;
+        //                     animation-duration: 0.8s;
+        //                     animation-timing-function: ease-out;
+        //                     animation-fill-mode: forwards;
+        //                     animation-delay: 1s;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // .one{
+        //     .imgContainer{
+        //         background-image: url("../../assets/terabois/AdobeStock_191224000_Preview.jpeg");
+        //     }
+        // }
+        // .two{
+        //     .imgContainer{
+        //         background-image: url("../../assets/terabois/pexels-magda-ehlers-2114014.jpg");
+        //     }
+        // }
+        // .terabois{
+        //     .imgContainer{
+        //         background-image: url("../../assets/terabois/AdobeStock_242300689_Preview.jpeg");
+        //     }
+        // }
+        // .four{
+        //     .imgContainer{
+        //         background-image: url("../../assets/terabois/pexels-philippe-donn-1242764.jpg");
+        //     }
+        // }
         .projectContainer:hover{
             height: 30%;
             .imgContainer{
@@ -217,26 +217,26 @@
         }
     }
 
-    .title{
-        width: 100%;
-        position: relative;
-        display: flex;
-        h2{
-            font-size: calc($h1 - 20%);
-            font-weight: $fWH2;
-            display: flex;
-            background-color: $clearPrimary;
-            z-index: 3;
-            font-weight: 300;
-            display: flex;
-            align-items: flex-end;
-            span{    
-                font-weight: 200;
-                font-size: 40px;
-                margin-left: 0.7rem;
-            }
-        }
-    }
+    // .title{
+    //     width: 100%;
+    //     position: relative;
+    //     display: flex;
+    //     h2{
+    //         font-size: calc($h1 - 20%);
+    //         font-weight: $fWH2;
+    //         display: flex;
+    //         background-color: $clearPrimary;
+    //         z-index: 3;
+    //         font-weight: 300;
+    //         display: flex;
+    //         align-items: flex-end;
+    //         span{    
+    //             font-weight: 200;
+    //             font-size: 40px;
+    //             margin-left: 0.7rem;
+    //         }
+    //     }
+    // }
     // .title:before{
     //     content: "";
     //     position: absolute;
