@@ -4,11 +4,11 @@ import "./_allProjects.scss"
 const AllProjects = () => {
     return (
         <div className='allProjectsContainer'>
-        <div className="title">
+        {/* <div className="title">
             <h2>2/<span>Projects</span></h2>
-        </div>
+        </div> */}
             <div className="projects">
-                <div className="projectContainer one">
+                {/* <div className="projectContainer one">
                     <div className="imgContainer"></div>
                     <div className="descriptionContainer">
                         <div className="description">
@@ -16,7 +16,7 @@ const AllProjects = () => {
                                 <h3 className="projectTitle">
                                     Rêve
                                 </h3>
-                            </div>
+                 @           </div>
                             <div className="bottomContainer">
                                 <p className='number'>a</p>
                                 <p className='date'>
@@ -90,8 +90,8 @@ const AllProjects = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
             </div>
         </div>
     );
