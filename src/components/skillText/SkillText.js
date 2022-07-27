@@ -1,22 +1,36 @@
 import React, { useEffect, useState, useRef  } from 'react';
 import "./_skillText.scss"
-import { gsap } from "gsap";
 import moi from "../../assets/me/moi-optimizate.jpg"
+import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// gsap.registerPlugin(ScrollTrigger)
 
 const SkillText = (props) => {
     const showLight = ["js", "gsap", "react", "jest", "sass"];
-    const animation = props.animation;
 
     const [showSkillText, setShowSkillText] = useState(false);
 
     const [light, setLight] = useState("");
 
-    const hRef = useRef(null);
-    const iRef = useRef(null);
-    const yRef = useRef(null);
-    const oRef = useRef(null);
-    const uRef = useRef(null);
-    const pointRef = useRef(null);
+    const tl = props.timeline;
+
+    const translate = props.translate;
+    const observation  = props.observation;
+
+    const test = useRef(null)
+
+    useEffect(() => {   
+        // tl.to(test.current, { x: translate });
+        // tl.to(test.current, {
+        //     duration: 1, 
+        //     y: translate,
+        //     scrollTrigger: {
+        //         trigger: observation,
+        //         markers: true
+        //     }
+        // }) 
+      }, [tl, translate]);
 
     useEffect(()=>{
         udateLight()
@@ -34,20 +48,8 @@ const SkillText = (props) => {
     }
 
     return (
-        <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
-            <div className="hiYou">
-                <div className='hiYouContainer'>
-                    <div ref={hRef} className= "one you">h</div>
-                    <div ref={iRef} className='two you'>i</div>
-                    <div className='three you'></div>
-                    <div ref={yRef} className='four you'>Y</div>
-                    <div ref={oRef} className='five you'>o</div>
-                    <div ref={uRef} className='six you'>u</div>
-                    <div ref={pointRef} className='seven you'>.</div>
-                      
-                </div>
-            </div>
-            <div  onMouseEnter={()=>setShowSkillText(true)}  className='lignContainer'>
+        <div ref={test} className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
+            <div onMouseEnter={()=>setShowSkillText(true)}  className='lignContainer'>
                 <div className="lignOneContainer container">
                     <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                 </div> 
