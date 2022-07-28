@@ -15,51 +15,80 @@ const HomePage = () => {
     const [showSkillText, setShowSkillText] = useState(true);
     const [makeScroll, setMakeScroll] = useState(true);
 
-    const [firsLetter, setFirstLetter] = useState('h');
-
     let locationOne;
     let locationTwo;
 
-    const sectionOneRef = useRef(null)
-    const sectionTwoRef = useRef(null)
-    const homePage = useRef(null)
-    const h = useRef(null)
+    const sectionOneRef = useRef(null);
+    const sectionTwoRef = useRef(null);
+    const homePage = useRef(null);
+    const h = useRef(null);
+    const i = useRef(null);
+    const y = useRef(null);
+    const o = useRef(null);
+    const u = useRef(null);
+    const point = useRef(null);
+    const tlOne = useRef();
+    const tlTwo = useRef();
 
-
-
-    useEffect(() => {
+    //Manage load
+    useEffect(()=>{
         window.addEventListener('load', (event) => {
             console.log('page is fully loaded');
         });
+    })
+
+    //Manage scrolltrigger
+    useEffect(() => {
+
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
         let sectionTwoSelect = document.querySelector("#root > div > main > section.sectionTwo")
-        const tl = gsap.timeline({
-            defaults: {
-                ease: "power2",
+
+        tlOne.current = gsap.timeline({
+            defaults:{
+                duration: 0.2,
+                ease: "Power4.inOut"
             },
             scrollTrigger: {
                 trigger: sectionTwoSelect,
-                markers: true,
-                scrub: true
+                // markers: true,
+                start: "top 50%",
+                toggleActions: "play complete reverse reverse",
             }
         })
-            .to(
-                h.current, {
-                duration: 0.2,
-                opacity: 1,
-                rotationY: 180,
-            })
-            .add(() => {
-                setFirstLetter(firsLetter === "m" ? "h" : "m")
-            })
-            .to(
-                h.current, {
-                duration: 0.2,
-                rotationY: 360,
-            })
+        .to(
+            h.current, {
+                rotationY: -180,
+            }, "-=0.1"
+        )
+        .to(
+            i.current,{
+                rotationY: -180,
+            }, "-=0.1"
+        )
+        .to(
+            y.current,{
+                rotationY: -180,
+            }, "-=0.1"
+        )
+        .to(
+            o.current,{
+                rotationY: -180,
+            }, "-=0.1"
+        )
+        .to(
+            u.current,{
+                rotationY: -180,
+            }, "-=0.1"
+        )
+        .to(
+            point.current,{
+                rotationY: -180,
+            }, "-=0.1"
+        )
+        .reverse()
     }, [])
 
-
+    //Manage scroll section apparition
     useEffect(() => {
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
         let sectionTwoSelect = document.querySelector("#root > div > main > section.sectionTwo")
@@ -116,29 +145,29 @@ const HomePage = () => {
             <main ref={homePage} className='homePageMain'>
                 <div className="hiYou">
                     <div className='hiYouContainer'>
-                        <div className="cards">
-                            <p className="front">h</p>
-                            <p className="back">m</p>
+                        <div ref={h} className="cards">
+                            <span className="front">w</span>
+                            <span className="back">m</span>
                         </div>
-                        <div className="cards">
-                            <p className="front">i</p>
-                            <p className="back">y</p>
+                        <div ref={i} className="cards">
+                            <span className="front">h</span>
+                            <span className="back">y</span>
                         </div>
-                        <div className="cards">
-                            <p className="front">Y</p>
-                            <p className="back">W</p>
+                        <div ref={y} className="cards">
+                            <span className="front">o</span>
+                            <span className="back">W</span>
                         </div>
-                        <div className="cards">
-                            <p className="front">o</p>
-                            <p className="back">o</p>
+                        <div ref={o} className="cards">
+                            <span className="front">I</span>
+                            <span className="back">o</span>
                         </div>
-                        <div className="cards">
-                            <p className="front">u</p>
-                            <p className="back">r</p>
+                        <div ref={u} className="cards">
+                            <span className="front">A</span>
+                            <span className="back">r</span>
                         </div>
-                        <div className="cards">
-                            <p className="front">.</p>
-                            <p className="back">k</p>
+                        <div ref={point} className="cards">
+                            <span className="front">m</span>
+                            <span className="back">k</span>
                         </div>
                     </div>
                 </div>
