@@ -131,6 +131,8 @@
         transform: translate(6%, -50%);
         .hiYouContainer {
             display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             height: 250px;
             cursor: pointer;
@@ -138,13 +140,16 @@
             margin-left: auto;
             position: relative;
             perspective: 1200;
+            overflow: hidden;
             .cards {
-                width: 100%;
+                width: 200px;
                 height: 100%;
-                background-color: blue;
                 transition: all 0.5s;
                 transform-style: preserve-3d;
+                transform: translatey(200px);
                 .front, .back{
+                    color: $darkTransparancy;
+                    font-size: 200px;
                     width: 100%;
                     height: 100%;
                     position: absolute;
@@ -158,14 +163,8 @@
                   
                   .back{
                     transform: rotateY(180deg);
-                     background-color: red;
                   }
                   
-            }
-        }
-        .hiYouContainer:hover{
-            .cards{
-                transform: rotateY(-180deg)
             }
         }
     }
