@@ -32,6 +32,7 @@
     align-items: center;
     transition: width 1s ease-in-out;
     position: relative;
+    overflow: hidden;
     .lignContainer{
         cursor: pointer;
         height: 80%;
@@ -199,6 +200,7 @@
         animation-duration: 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in-out;
+        overflow: hidden;
         img{
             animation-name: transformImg;
             animation-duration: .5s;
