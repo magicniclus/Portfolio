@@ -146,7 +146,8 @@
                 height: 100%;
                 transition: all 0.5s;
                 transform-style: preserve-3d;
-                transform: translatey(200px);
+                transform: translatey(300px);
+                opacity: 0;
                 .front, .back{
                     color: $darkTransparancy;
                     font-size: 200px;
