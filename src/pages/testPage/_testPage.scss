@@ -1,6 +1,7 @@
 :root {
     --blockContainerWidth: 400px;
     --testPageContainerWidth: 100vw;
+    --heightBlock: 16%;
 }
 
 .globalContainer{
@@ -8,12 +9,14 @@
     position: relative;
     .containerLeft{
         height: 100vh;
-        width: calc(100vw - 600px);
+        width: calc(100vw - (var(--blockContainerWidth) + 5%));
         z-index: 10;
         .back{
             cursor: pointer;
             margin-top: 10px;
-            margin-left: 85%;
+            text-align: end;
+            margin-right: 5rem;
+            margin-top: 5rem;
         }
     }
     .testPageContainer{
@@ -35,33 +38,35 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            // background-color: azure;
             transition: all;
             transition-duration: 1s;
             transition-timing-function: ease-in-out;
             .block{
                 cursor: pointer;
                 width: 400px;
-                height: 18%;
+                height: var(--heightBlock);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-left: auto;
                 margin-right: auto;
+                transition: height;
+                transition-duration: 0.5s;
+                transition-timing-function: ease-in-out;
             }
             .block:hover{
                 height: 23%;
             }
-            .blockOne{
+            .colorOne{
                 background-color: aqua;
             }
-            .blockTwo{
+            .colorTwo{
                 background-color: red;
             }
-            .blockThree{
+            .colorThree{
                 background-color: white;
             }
-            .blockFour{
+            .colorFour{
                 background-color: yellow;
             }
         }
@@ -78,9 +83,6 @@
                 animation-timing-function: ease-in-out;
                 animation-fill-mode: forwards;
                 opacity: 0.3;
-            }
-            .blockOne{
-                // animation-delay: 0.2s;
             }
             .blockTwo{
                 animation-delay: 0.2s;
@@ -103,7 +105,7 @@
             animation-timing-function: ease-in-out;
             animation-fill-mode: forwards;
             .block{
-                height: 18%;
+                height: var(--heightBlock);
                 animation-name: updateBlockReverse;
                 animation-duration: 1s;
                 animation-timing-function: ease-in-out;
@@ -128,7 +130,7 @@
         width: 50vw;
     }
     100%{
-        margin-right: 0;
+        margin-right: 5rem;
         margin-left: calc(100vw - var(--blockContainerWidth));
         height: 100%;
     }
@@ -150,7 +152,7 @@
 //reverse
 @keyframes updateActiveGlobalContainerReverse {
     0%{
-        margin-right: 0;
+        margin-right: 5rem;
         margin-left: calc(100vw - var(--blockContainerWidth));
         height: 100%;
     }
@@ -173,7 +175,7 @@
     }
     100%{
         transform: perspective(150px) rotate3d(0,1,1,0deg);
-        height: 18%;
+        height: var(--heightBlock);
         opacity: 1;
     }
 }
