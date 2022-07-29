@@ -1,97 +1,78 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import "./_allProjects.scss"
 
 const AllProjects = () => {
+    const [active, setActive] = useState(false)
+    const [secondShow, setSecondShow] = useState(false)
+    const [blockActive, setBlockActive] = useState(null)
+
+    const [blockOne, setBlockOne] = useState("blockOne block colorOne")
+    const [blockTwo, setBlockTwo] = useState("blockTwo block colorTwo")
+    const [blockThree, setBlockThree] = useState("blockThree block colorThree")
+    const [blockFour, setBlockFour] = useState("blockFour block colorFour")
+
+    const handleNameBlock = (index)=>{
+        if(index === 1){
+            setBlockOne("blockOne block active colorOne")
+            setBlockTwo('blockTwo block colorTwo')
+            setBlockThree("blockThree block colorThree")
+            setBlockFour("blockFour block colorFour")
+        }else if(index === 2){
+            setBlockOne("blockTwo block colorOne")
+            setBlockTwo('blockOne block active colorTwo')
+            setBlockThree("blockTwo block colorThree")
+            setBlockFour("blockThree block colorFour")
+        }else if(index === 3){
+            setBlockOne("blockThree block colorOne")
+            setBlockTwo('blockTwo block colorTwo')
+            setBlockThree('blockOne block active colorThree')
+            setBlockFour("blockTwo block colorFour")
+        }else if(index === 4){
+            setBlockOne("blockFour block colorOne")
+            setBlockTwo('blockThree block colorTwo')
+            setBlockThree('blockTwo block colorThree')
+            setBlockFour('blockOne block active colorFour')
+        }
+    }
+
+    const handleClick = (value)=>{
+        setActive(true)
+        setBlockActive(value)
+        handleNameBlock(value)
+    }
+
+    const handleClickBack = ()=>{
+        setActive(false)
+        setSecondShow(true)
+    }
+
+    const containerLeft = ()=>{
+        return(
+            <div className="containerLeft">
+                <div onClick={handleClickBack} className='back'>Back</div>
+            </div>
+        )
+    }
+
+    const makeClassName = ()=>{
+        if(active) return "testPageContainer containerActive"
+        else if (secondShow) return "testPageContainer secondShow"
+        else return "testPageContainer"
+    }
+
     return (
-        <div className='allProjectsContainer'>
-        {/* <div className="title">
-            <h2>2/<span>Projects</span></h2>
-        </div> */}
-            <div className="projects">
-                {/* <div className="projectContainer one">
-                    <div className="imgContainer"></div>
-                    <div className="descriptionContainer">
-                        <div className="description">
-                            <div className="topContainer">
-                                <h3 className="projectTitle">
-                                    Rêve
-                                </h3>
-                 @           </div>
-                            <div className="bottomContainer">
-                                <p className='number'>a</p>
-                                <p className='date'>
-                                    <span className='one'>2</span>
-                                    <span className='two'>0</span>
-                                    <span className='three'>2</span>
-                                    <span className='four'>2</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        <div className='globalContainer'>
+            {
+                active ? containerLeft() : null
+            }
+            <div className={makeClassName()}>
+                <div className="blockContainer">
+                    <div className={blockOne} onClick={()=>handleClick(1)}>One</div>
+                    <div className={blockTwo} onClick={()=>handleClick(2)}>Two</div>
+                    <div className={blockThree} onClick={()=>handleClick(3)}>Three</div>
+                    <div className={blockFour} onClick={()=>handleClick(4)}>Four</div>
                 </div>
-                <div className="projectContainer two">
-                    <div className="imgContainer"></div>
-                    <div className="descriptionContainer">
-                        <div className="description">
-                            <div className="topContainer">
-                                <h3 className="projectTitle">
-                                    KosiKaza
-                                </h3>
-                            </div>
-                            <div className="bottomContainer">
-                                <p className='number'>b</p>
-                                <p className='date'>
-                                    <span className='one'>2</span>
-                                    <span className='two'>0</span>
-                                    <span className='three'>2</span>
-                                    <span className='four'>2</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="projectContainer terabois">
-                    <div className="imgContainer"></div>
-                    <div className="descriptionContainer">
-                        <div className="description">
-                            <div className="topContainer">
-                                <h3 className="projectTitle">
-                                    TeraBois
-                                </h3>
-                            </div>
-                            <div className="bottomContainer">
-                                <p className='number'>c</p>
-                                <p className='date'>
-                                    <span className='one'>2</span>
-                                    <span className='two'>0</span>
-                                    <span className='three'>2</span>
-                                    <span className='four'>2</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="projectContainer four">
-                    <div className="imgContainer"></div>
-                    <div className="descriptionContainer">
-                        <div className="description">
-                            <div className="topContainer">
-                                <h3 className="projectTitle">
-                                    JustMining
-                                </h3>
-                            </div>
-                            <div className="bottomContainer">
-                                <p className='number'>d</p>
-                                <p className='date'>
-                                    <span className='one'>2</span>
-                                    <span className='two'>0</span>
-                                    <span className='three'>2</span>
-                                    <span className='four'>2</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div> */}
-                {/* </div> */}
             </div>
         </div>
     );
