@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef  } from 'react';
 import "./_skillText.scss"
 import moi from "../../assets/me/moi-optimizate.jpg"
 import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 const SkillText = (props) => {
     const showLight = ["js", "gsap", "react", "jest", "sass"];
@@ -13,24 +13,8 @@ const SkillText = (props) => {
 
     const [light, setLight] = useState("");
 
-    const tl = props.timeline;
-
-    const translate = props.translate;
-    const observation  = props.observation;
-
-    const test = useRef(null)
-
-    useEffect(() => {   
-        // tl.to(test.current, { x: translate });
-        // tl.to(test.current, {
-        //     duration: 1, 
-        //     y: translate,
-        //     scrollTrigger: {
-        //         trigger: observation,
-        //         markers: true
-        //     }
-        // }) 
-      }, [tl, translate]);
+    const text = useRef(null);
+    const image = useRef(null);
 
     useEffect(()=>{
         udateLight()
@@ -48,8 +32,8 @@ const SkillText = (props) => {
     }
 
     return (
-        <div ref={test} className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
-            <div onMouseEnter={()=>setShowSkillText(true)}  className='lignContainer'>
+        <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
+            <div ref={text}  onMouseEnter={()=>setShowSkillText(true)}  className='lignContainer'>
                 <div className="lignOneContainer container">
                     <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                 </div> 
@@ -81,7 +65,7 @@ const SkillText = (props) => {
                     <p className="lign lignTen">versions have evolved over the years, sometimes by accident</p>
                 </div>
             </div>
-            <div className="imgContainer">
+            <div ref={image} className="imgContainer">
                 <img src={moi} alt="Nicolas Castera" />
             </div>
         </div>
