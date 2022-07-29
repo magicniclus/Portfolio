@@ -1,0 +1,183 @@
+:root {
+    --blockContainerWidth: 700px;
+    --testPageContainerWidth: 100vw;
+}
+
+.globalContainer{
+    display: flex;
+    position: relative;
+    .containerLeft{
+        height: 100vh;
+        width: calc(100vw - 600px);
+        z-index: 10;
+        .back{
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 85%;
+        }
+    }
+    .testPageContainer{
+        position: absolute;
+        top: 0;
+        height: 0;
+        height: 100vh;
+        width: var(--testPageContainerWidth);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .blockContainer{
+            height: 50%;
+            width: var(--blockContainerWidth);
+            margin-left: calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
+            margin-right:  calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background-color: azure;
+            transition: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            .block{
+                cursor: pointer;
+                width: 500px;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                transition: all;
+                transition-duration: 0.4s;
+                transition-timing-function: ease-in-out;
+            }
+            .block:hover{
+                height: 90px;
+            }
+            .blockOne{
+                background-color: aqua;
+            }
+            .blockTwo{
+                background-color: red;
+            }
+            .blockThree{
+                background-color: white;
+            }
+            .blockFour{
+                background-color: yellow;
+            }
+        }
+    }
+    .containerActive{
+        .blockContainer{
+            animation-name: updateActiveGlobalContainer;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            .block{
+                animation-name: updateBlock;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                opacity: 0.3;
+            }
+            .blockOne{
+                animation-delay: 0.2s;
+            }
+            .blockTwo{
+                animation-delay: 0.4s;
+            }
+            .blockThree{
+                animation-delay: 0.6s;
+            }
+            .blockFour{
+                animation-delay: 0.8s;
+            }
+            .active{
+                opacity: 1;
+            }
+        }
+    }
+    .secondShow{
+        .blockContainer{
+            animation-name: updateActiveGlobalContainerReverse;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            .block{
+                animation-name: updateBlockReverse;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                opacity: 1;
+            }
+            .block:hover{
+                height: 90px;
+            }
+        }
+    }
+}
+
+//original
+@keyframes updateActiveGlobalContainer {
+    0%{
+        margin-left: calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
+        margin-right:  calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
+        height: 50%;
+        width: var(--blockContainerWidth);
+    }
+    50%{
+        width: 50vw;
+    }
+    100%{
+        margin-right: 0;
+        // margin-left: calc(100vw - 700px);
+        margin-left: calc(100vw - var(--blockContainerWidth));
+        height: 100%;
+        width: 700px;
+    }
+}
+
+@keyframes updateBlock {
+    0%{
+        width: 500px;
+        height: 70px;
+    }
+    100%{
+        width: 400px;
+        height: 400px;
+    }
+}
+
+//reverse
+@keyframes updateActiveGlobalContainerReverse {
+    0%{
+        margin-right: 0;
+        margin-left: calc(100vw - var(--blockContainerWidth));
+        height: 100%;
+        // width: 700px;
+    }
+    // 50%{
+    //     width: 50vw;
+    // }
+    100%{
+        margin-left: calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
+        margin-right:  calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
+        height: 50%;
+        width: var(--blockContainerWidth);
+    }
+}
+
+@keyframes updateBlockReverse {
+    0%{
+        width: 400px;
+        height: 400px;
+        opacity: 0.3;
+    }
+    100%{
+        width: 500px;
+        height: 70px;
+        opacity: 1;
+    }
+}
