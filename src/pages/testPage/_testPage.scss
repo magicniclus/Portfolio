@@ -1,7 +1,8 @@
 :root {
     --blockContainerWidth: 400px;
     --testPageContainerWidth: 100vw;
-    --heightBlock: 16%;
+    --heightBlock: 22%;
+    --heightBlockMax: 25%;
 }
 
 .globalContainer{
@@ -39,7 +40,7 @@
             justify-content: space-around;
             align-items: center;
             transition: all;
-            transition-duration: 1s;
+            transition-duration: 0.5s;
             transition-timing-function: ease-in-out;
             .block{
                 cursor: pointer;
@@ -51,11 +52,11 @@
                 margin-left: auto;
                 margin-right: auto;
                 transition: height;
-                transition-duration: 0.5s;
+                transition-duration: 0.3s;
                 transition-timing-function: ease-in-out;
             }
             .block:hover{
-                height: 23%;
+                height: 25%;
             }
             .colorOne{
                 background-color: aqua;
@@ -74,46 +75,46 @@
     .containerActive{
         .blockContainer{
             animation-name: updateActiveGlobalContainer;
-            animation-duration: 1s;
+            animation-duration: 0.5s;
             animation-timing-function: ease-in-out;
             animation-fill-mode: forwards;
             .block{
                 animation-name: updateBlock;
-                animation-duration: 1s;
+                animation-duration: 0.5s;
                 animation-timing-function: ease-in-out;
                 animation-fill-mode: forwards;
                 opacity: 0.3;
             }
             .blockTwo{
-                animation-delay: 0.2s;
+                animation-delay: 0.1s;
             }
             .blockThree{
-                animation-delay: 0.4s;
+                animation-delay: 0.2s;
             }
             .blockFour{
-                animation-delay: 0.6s;
+                animation-delay: 0.3s;
             }
             .active{
                 opacity: 1;
+            }
+            .block:hover{
+                height: 22%;
             }
         }
     }
     .secondShow{
         .blockContainer{
             animation-name: updateActiveGlobalContainerReverse;
-            animation-duration: 1s;
+            animation-duration: 0.5s;
             animation-timing-function: ease-in-out;
             animation-fill-mode: forwards;
             .block{
                 height: var(--heightBlock);
                 animation-name: updateBlockReverse;
-                animation-duration: 1s;
+                animation-duration: 0.5s;
                 animation-timing-function: ease-in-out;
                 animation-fill-mode: forwards;
                 opacity: 1;
-            }
-            .block:hover{
-                height: 23%;
             }
         }
     }
@@ -145,7 +146,7 @@
     }
     100%{
         transform: perspective(150px) rotate3d(0,1,1,0deg);
-        height: 23%;
+        // height: var(--heightBlockMax);£
     }
 }
 
@@ -167,7 +168,7 @@
 @keyframes updateBlockReverse {
     0%{
         transform: perspective(150px) rotate3d(0,1,1,0deg);
-        height: 23%;
+        // height:  var(--heightBlockMax);
         opacity: 0.3;
     }
     50%{
@@ -175,7 +176,7 @@
     }
     100%{
         transform: perspective(150px) rotate3d(0,1,1,0deg);
-        height: var(--heightBlock);
+        // height: var(--heightBlock);
         opacity: 1;
     }
 }
