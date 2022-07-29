@@ -1,5 +1,5 @@
 :root {
-    --blockContainerWidth: 700px;
+    --blockContainerWidth: 400px;
     --testPageContainerWidth: 100vw;
 }
 
@@ -35,25 +35,22 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            background-color: azure;
+            // background-color: azure;
             transition: all;
             transition-duration: 1s;
             transition-timing-function: ease-in-out;
             .block{
                 cursor: pointer;
-                width: 500px;
-                height: 70px;
+                width: 400px;
+                height: 18%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-left: auto;
                 margin-right: auto;
-                transition: all;
-                transition-duration: 0.4s;
-                transition-timing-function: ease-in-out;
             }
             .block:hover{
-                height: 90px;
+                height: 23%;
             }
             .blockOne{
                 background-color: aqua;
@@ -83,16 +80,16 @@
                 opacity: 0.3;
             }
             .blockOne{
-                animation-delay: 0.2s;
+                // animation-delay: 0.2s;
             }
             .blockTwo{
-                animation-delay: 0.4s;
+                animation-delay: 0.2s;
             }
             .blockThree{
-                animation-delay: 0.6s;
+                animation-delay: 0.4s;
             }
             .blockFour{
-                animation-delay: 0.8s;
+                animation-delay: 0.6s;
             }
             .active{
                 opacity: 1;
@@ -106,6 +103,7 @@
             animation-timing-function: ease-in-out;
             animation-fill-mode: forwards;
             .block{
+                height: 18%;
                 animation-name: updateBlockReverse;
                 animation-duration: 1s;
                 animation-timing-function: ease-in-out;
@@ -113,7 +111,7 @@
                 opacity: 1;
             }
             .block:hover{
-                height: 90px;
+                height: 23%;
             }
         }
     }
@@ -125,28 +123,27 @@
         margin-left: calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
         margin-right:  calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
         height: 50%;
-        width: var(--blockContainerWidth);
     }
     50%{
         width: 50vw;
     }
     100%{
         margin-right: 0;
-        // margin-left: calc(100vw - 700px);
         margin-left: calc(100vw - var(--blockContainerWidth));
         height: 100%;
-        width: 700px;
     }
 }
 
 @keyframes updateBlock {
     0%{
-        width: 500px;
-        height: 70px;
+        transform: perspective(150px) rotate3d(0,1,1,0deg);
+    }
+    50%{
+        transform: perspective(150px) rotate3d(0,1,1,4deg);
     }
     100%{
-        width: 400px;
-        height: 400px;
+        transform: perspective(150px) rotate3d(0,1,1,0deg);
+        height: 23%;
     }
 }
 
@@ -156,11 +153,7 @@
         margin-right: 0;
         margin-left: calc(100vw - var(--blockContainerWidth));
         height: 100%;
-        // width: 700px;
     }
-    // 50%{
-    //     width: 50vw;
-    // }
     100%{
         margin-left: calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
         margin-right:  calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
@@ -171,13 +164,16 @@
 
 @keyframes updateBlockReverse {
     0%{
-        width: 400px;
-        height: 400px;
+        transform: perspective(150px) rotate3d(0,1,1,0deg);
+        height: 23%;
         opacity: 0.3;
     }
+    50%{
+        transform: perspective(150px) rotate3d(0,1,1,-4deg);
+    }
     100%{
-        width: 500px;
-        height: 70px;
+        transform: perspective(150px) rotate3d(0,1,1,0deg);
+        height: 18%;
         opacity: 1;
     }
 }
