@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import SkillText from '../../components/skillText/SkillText';
 import './_homePage.scss';
-import { gsap, Power4 } from "gsap";
+import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
@@ -145,7 +145,7 @@ const HomePage = () => {
     const sectionTwo = () => {
         return (
             <section ref={sectionTwoRef} className="sectionTwo">
-                <AllProjects />
+                <AllProjects observer={locationTwo} />
             </section>
         )
     }
