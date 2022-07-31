@@ -13,8 +13,8 @@
     top: 0%;
     left: 0;
     .containerLeft{
-        height: 100vh;
-        width: calc(100vw - (var(--blockContainerWidth) + 5%));
+        min-height: 100vh;
+        min-width: calc(100vw - 400px);
         z-index: 10;
         .back{
             cursor: pointer;
@@ -58,21 +58,34 @@
                 transition: height;
                 transition-duration: 0.3s;
                 transition-timing-function: ease-in-out;
+                overflow: hidden;
+                img{
+                    width: 700px;
+                    object-fit: cover;
+                    height: 100%;
+                    filter: grayscale(1);
+                    transition: filter;
+                    transition-duration: 0.3s;
+                    transform: translatey(150);
+                }
             }
             .block:hover{
                 height: 25%;
+                img{
+                    filter: grayscale(0);
+                }
             }
             .colorOne{
-                background-color: aqua;
+                // background-color: aqua;
             }
             .colorTwo{
-                background-color: red;
+                // background-color: red;
             }
             .colorThree{
-                background-color: white;
+                // background-color: white;
             }
             .colorFour{
-                background-color: yellow;
+                // background-color: yellow;
             }
         }
     }
@@ -103,6 +116,9 @@
             }
             .active{
                 opacity: 1;
+                img{
+                    filter: grayscale(0);
+                }
             }
             .block:hover{
                 height: 22%;
@@ -164,6 +180,7 @@
         margin-right: 5rem;
         margin-left: calc(100vw - var(--blockContainerWidth));
         height: 100%;
+        --blockContainerWidth: 400px;
     }
     100%{
         margin-left: calc((var(--testPageContainerWidth) - (var(--blockContainerWidth)))/2);
