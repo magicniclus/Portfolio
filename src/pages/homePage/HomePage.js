@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger)
 const HomePage = () => {
     const [showSkillText, setShowSkillText] = useState(true);
     const [makeScroll, setMakeScroll] = useState(true);
+    const [lockScroller, setLockScroller] = useState(false)
 
     let locationOne;
     let locationTwo;
@@ -28,6 +29,12 @@ const HomePage = () => {
     const o = useRef(null);
     const u = useRef(null);
     const point = useRef(null);
+
+    const buttonOne = useRef(null)
+    const buttonTwo = useRef(null)
+    const buttonThree = useRef(null)
+    const buttonFour = useRef(null)
+    const buttonContact = useRef(null)
 
     const tl = useRef();
 
@@ -117,6 +124,96 @@ const HomePage = () => {
         })
     }, [])
 
+    useEffect(()=>{
+        if(lockScroller){
+            tl.current = gsap.timeline({
+                defaults: {
+                    duration: 0.05,
+                    ease: "Power2.inOut",
+                    opacity: 1
+                }
+            })
+            .to(h.current,{
+                y: 300,
+            })
+            .to(i.current,{
+                y: 300
+            })
+            .to(y.current,{
+                y: 300
+            })
+            .to(o.current,{
+                y: 300
+            })
+            .to(u.current,{
+                y: 300
+            })
+            .to(point.current,{
+                y: 300
+            }) 
+            .to(buttonOne.current, {
+                y:40
+            }, 0)    
+            .to(buttonTwo.current, {
+                y:40
+            }, '<0.09')  
+            .to(buttonThree.current, {
+                y:40
+            }, '<0.09')  
+            .to(buttonFour.current, {
+                y:40
+            }, '<0.09')   
+            .to(buttonContact.current, {
+                y:40
+            }, '<') 
+        }else{
+            tl.current = gsap.timeline({
+                defaults: {
+                    duration: 0.04,
+                    ease: "Power2.inOut",
+                    opacity: 1
+                }
+            })
+            .to(h.current,{
+                y: 0,
+            })
+            .to(i.current,{
+                y: 0
+            })
+            .to(y.current,{
+                y: 0
+            })
+            .to(o.current,{
+                y: 0
+            })
+            .to(u.current,{
+                y: 0
+            })
+            .to(point.current,{
+                y: 0
+            })   
+            .to(buttonOne.current, {
+                y:0,
+                duration: 0.6
+            }, 0)    
+            .to(buttonTwo.current, {
+                y:0,
+                duration: 0.6
+            }, '<')  
+            .to(buttonThree.current, {
+                y:0,
+                duration: 0.6
+            }, '<')  
+            .to(buttonFour.current, {
+                y:0,
+                duration: 0.6
+            }, '<')
+            .to(buttonContact.current, {
+                y:0
+            }, '<') 
+        }
+    })
+
     //TL Manage scroll section apparition
     useEffect(() => {
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
@@ -127,6 +224,7 @@ const HomePage = () => {
         }
     }, [window.scrollY])
 
+    /* Creating an observer that will trigger the scrollTo function when the user scrolls up or down. */
     if (makeScroll) {
         Observer.create({
             target: homePage.current,
@@ -142,10 +240,16 @@ const HomePage = () => {
         })
     }
 
+    /**
+     * It returns a section element with a ref attribute that references the sectionTwoRef variable, a
+     * className attribute that references the sectionTwo class, and a child element that is the
+     * AllProjects component
+     * @returns A section with the className of sectionTwo.
+     */
     const sectionTwo = () => {
         return (
             <section ref={sectionTwoRef} className="sectionTwo">
-                <AllProjects observer={locationTwo} />
+                <AllProjects observer={locationTwo} setLockScroller={setLockScroller} lockScroller={lockScroller} />
             </section>
         )
     }
@@ -161,13 +265,23 @@ const HomePage = () => {
                 </div>
                 <div className="bottomContainer">
                     <div className="reseauxContainer">
-                        <button className="reseaux github">Github</button>
-                        <button className="reseaux instagram">Instagram</button>
-                        <button className="reseaux tweeter">Tweeter</button>
-                        <button className="reseaux linkedin">Linkedin</button>
+                        <div className="buttonContainer">
+                            <button ref={buttonOne} className="reseaux github">Github</button>
+                        </div>
+                        <div className="buttonContainer">
+                            <button ref={buttonTwo} className="reseaux instagram">Instagram</button>
+                        </div>
+                        <div className="buttonContainer">
+                            <button ref={buttonThree} className="reseaux tweeter">Tweeter</button>
+                        </div>
+                        <div className="buttonContainer">
+                            <button ref={buttonFour} className="reseaux linkedin">Linkedin</button>
+                        </div>
                     </div>
                     <div className="contactContainer">
-                        <button className="contact">Contact</button>
+                        <div className="buttonContainer">
+                            <button ref={buttonContact} className="contact">Contact</button>
+                        </div>
                     </div>
                 </div>
             </header>
