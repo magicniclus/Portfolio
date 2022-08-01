@@ -67,7 +67,6 @@
         margin-bottom: 1rem;
         display: flex;
         justify-content: space-between;
-        z-index: 15;
         .reseauxContainer {
             display: flex;
             flex-direction: column;
@@ -76,6 +75,7 @@
                 height: 100px;
                 overflow: hidden;
                 button {
+                    z-index: 80;
                     font-weight: 100;
                     cursor: pointer;
                     height: 38px;
