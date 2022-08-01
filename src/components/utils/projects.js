@@ -1,5 +1,5 @@
-export const projects = {
-    terabois : {
+export let projects = [
+    {
         id: 1,
         title: "terabois",
         city: "bordeaux",
@@ -9,7 +9,7 @@ export const projects = {
         img: "one.jpg",
         color: "RGBA(200,193,189,0.2)"
     },
-    maisonsur : {
+    {
         id: 2,
         title: "maison-sûr",
         city: "Paris",
@@ -19,8 +19,8 @@ export const projects = {
         img: "two.jpg",
         color: "RGBA(147,163,168,0.2)"
     },
-    magma : {
-        id: 2,
+    {
+        id: 3,
         title: "magma",
         city: "Paris",
         years: "2019",
@@ -29,8 +29,8 @@ export const projects = {
         img: "three.jpg",
         color: "RGBA(200,193,189,0.2)"
     },
-    threejs : {
-        id: 2,
+    {
+        id: 4,
         title: "three-js",
         city: "Bordeaux",
         years: "2020",
@@ -39,4 +39,5 @@ export const projects = {
         img: "four.jpg",
         color: "RGBA(237,234,230,0.2)D"
     }
-}
+]
+
