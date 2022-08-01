@@ -14,14 +14,27 @@
     left: 0;
     .containerLeft{
         min-height: 100vh;
-        // min-width: calc(100vw - 400px);
         width: 100vw;
         z-index: 10;
-        .back{
-            cursor: pointer;
-            text-align: end;
-            margin-right: 5rem;
-            margin-top: 3rem;
+        .topContainer{
+            .back{
+                width: calc(100% - 400px);
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                text-align: end;
+                margin-top: 2.4rem;
+                svg{
+                    margin-right: 0.5rem;
+                }
+                span{
+                    cursor: pointer;
+                    font-size: $btn;
+                    margin-right: 5rem;
+                }
+            }
+            .contentContainer{
+            }
         }
     }
     .testPageContainer{
@@ -74,18 +87,6 @@
                 img{
                     filter: grayscale(0);
                 }
-            }
-            .colorOne{
-                // background-color: aqua;
-            }
-            .colorTwo{
-                // background-color: red;
-            }
-            .colorThree{
-                // background-color: white;
-            }
-            .colorFour{
-                // background-color: yellow;
             }
         }
     }
