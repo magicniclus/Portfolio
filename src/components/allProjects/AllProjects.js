@@ -6,6 +6,9 @@ import terabois from "../../assets/terabois/one.jpg"
 import maisonsur from "../../assets/terabois/two.jpg"
 import magma from "../../assets/terabois/three.jpg"
 import threeJs from "../../assets/terabois/four.jpg"
+import { projects } from "../utils/projects"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 const AllProjects = (props) => {
     //GSAP
@@ -136,6 +139,10 @@ const AllProjects = (props) => {
         setSecondShow(true)
     }
 
+    const showContent = ()=>{
+
+    }
+
     /**
      * It returns a div with a className of containerLeft, which contains a div with a className of
      * back, which has an onClick event handler that calls the handleClickBack function
@@ -145,10 +152,17 @@ const AllProjects = (props) => {
         return(
             <div className="containerLeft">
                 <div className="topContainer">
-                    <div onClick={handleClickBack} className='back'>Back</div>
+                    <div className='back'>
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                       <span onClick={handleClickBack}>Back</span> 
+                    </div>
                 </div>
                 <div className="contentContainer">
-                    <h3></h3>
+                    {/* {
+                        projects.map(x=>
+                            x.id === blockActive? <p key={x.title}>{x.title}</p> : null
+                        )
+                    } */}
                 </div>
             </div>
         )
