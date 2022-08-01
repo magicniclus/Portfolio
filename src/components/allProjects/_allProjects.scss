@@ -14,14 +14,14 @@
     left: 0;
     .containerLeft{
         min-height: 100vh;
-        min-width: calc(100vw - 400px);
+        // min-width: calc(100vw - 400px);
+        width: 100vw;
         z-index: 10;
         .back{
             cursor: pointer;
-            margin-top: 10px;
             text-align: end;
             margin-right: 5rem;
-            margin-top: 5rem;
+            margin-top: 3rem;
         }
     }
     .testPageContainer{
@@ -66,7 +66,7 @@
                     filter: grayscale(1);
                     transition: filter;
                     transition-duration: 0.3s;
-                    transform: translatey(150);
+                    transform: translatey(200);
                 }
             }
             .block:hover{
