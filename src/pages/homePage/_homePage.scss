@@ -61,6 +61,7 @@
     }
     .bottomContainer {
         width: 95%;
+        max-height: 10rem;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 1rem;
@@ -70,25 +71,28 @@
         .reseauxContainer {
             display: flex;
             flex-direction: column;
-            height: 70%;
             justify-content: space-between;
-            button {
-                font-weight: 100;
-                cursor: pointer;
-                height: 38px;
-                font-size: $h2;
-                font-weight: 100;
-                border: none;
-                background-color: transparent;
-                text-align: left;
-                display: flex;
-                align-items: center;
-                transition: color;
-                transition-duration: 0.5s;
-                transition-timing-function: ease-out;
-            }
-            button:hover {
-                color: $secondaryYellow;
+            .buttonContainer{
+                height: 100px;
+                overflow: hidden;
+                button {
+                    font-weight: 100;
+                    cursor: pointer;
+                    height: 38px;
+                    font-size: $h2;
+                    font-weight: 100;
+                    border: none;
+                    background-color: transparent;
+                    text-align: left;
+                    display: flex;
+                    align-items: center;
+                    transition: color;
+                    transition-duration: 0.5s;
+                    transition-timing-function: ease-out;
+                }
+                button:hover {
+                    color: $secondaryYellow;
+                }
             }
         }
         .contactContainer {
@@ -97,21 +101,27 @@
             height: 95%;
             justify-content: end;
             z-index: 17;
-            button {
-                cursor: pointer;
-                height: 38px;
-                font-size: calc($btn + 50%);
-                border: none;
-                font-weight: 100;
-                background-color: $clearPrimary;
-                text-align: left;
+            .buttonContainer{
                 display: flex;
-                align-items: center;
-                transition-duration: 0.2s;
-                color: $secondaryYellow;
-            }
-            button:hover {
-                color: $secondaryYellow;
+                flex-direction: column;
+                justify-content: space-between;
+                overflow: hidden;
+                button {
+                    cursor: pointer;
+                    height: 38px;
+                    font-size: calc($btn + 50%);
+                    border: none;
+                    font-weight: 100;
+                    background-color: $clearPrimary;
+                    text-align: left;
+                    display: flex;
+                    align-items: center;
+                    transition-duration: 0.2s;
+                    color: $secondaryYellow;
+                }
+                button:hover {
+                    color: $secondaryYellow;
+                }
             }
         }
     }
