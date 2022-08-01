@@ -8,7 +8,6 @@ import magma from "../../assets/terabois/three.jpg"
 import threeJs from "../../assets/terabois/four.jpg"
 
 const AllProjects = (props) => {
-
     //GSAP
     const observer = props.observer;
 
@@ -29,6 +28,7 @@ const AllProjects = (props) => {
                 trigger: observer,
                 toggleActions: "play complete reverse reverse",
                 start: "50% 50%",
+                // markers: true
             }
         })
         .fromTo(blockOneRef.current, {y: 150}, {y:0, delay:1})
@@ -37,18 +37,33 @@ const AllProjects = (props) => {
         .fromTo(blockFourRef.current, {y: 150}, {y:0}, "-=0.1")
     }, [])
 
+    
     //Component
+    const lockScroller = props.lockScroller;
+    const setLockScroller = props.setLockScroller;
+
     const [active, setActive] = useState(false)
     const [secondShow, setSecondShow] = useState(false)
     const [blockActive, setBlockActive] = useState(null)
-
+    
     const [whatHandle, setWhatHandle] = useState(true)
-
+    
     const [blockOne, setBlockOne] = useState("blockOne block colorOne")
     const [blockTwo, setBlockTwo] = useState("blockTwo block colorTwo")
     const [blockThree, setBlockThree] = useState("blockThree block colorThree")
     const [blockFour, setBlockFour] = useState("blockFour block colorFour")
 
+    useEffect(()=>{
+        if(active){
+            setLockScroller(true)
+        }else{
+            setLockScroller(false)
+        }
+    }, [active])
+    /**
+     * The function takes in an index and then sets the state of the blocks based on the index
+     * @param index - the index of the block that is being clicked
+     */
     const handleNameBlockOne = (index)=>{
         if(index === 1){
             setBlockOne("blockOne block active colorOne")
@@ -73,6 +88,10 @@ const AllProjects = (props) => {
         }
     }
 
+    /**
+     * It takes in an index and then sets the state of the blocks based on the index
+     * @param index - the index of the block that was clicked
+     */
     const handleNameBlockTwo= (index)=>{
         if(index === 1){
             setBlockOne("blockOne block active colorOne")
@@ -97,25 +116,50 @@ const AllProjects = (props) => {
         }
     }
 
+    /**
+     * It sets the active state to true, sets the blockActive state to the value passed in, and then
+     * calls the handleNameBlockOne or handleNameBlockTwo function depending on the value of the
+     * whatHandle state
+     * @param value - the value of the block that is clicked
+     */
     const handleClick = (value)=>{
         setActive(true)
         setBlockActive(value)
         whatHandle ? handleNameBlockOne(value): handleNameBlockTwo(value)
     }
 
+    /**
+     * It sets the active state to false and the secondShow state to true.
+     */
     const handleClickBack = ()=>{
         setActive(false)
         setSecondShow(true)
     }
 
+    /**
+     * It returns a div with a className of containerLeft, which contains a div with a className of
+     * back, which has an onClick event handler that calls the handleClickBack function
+     * @returns A div with a className of containerLeft.
+     */
     const containerLeft = ()=>{
         return(
             <div className="containerLeft">
-                <div onClick={handleClickBack} className='back'>Back</div>
+                <div className="topContainer">
+                    <div onClick={handleClickBack} className='back'>Back</div>
+                </div>
+                <div className="contentContainer">
+                    <h3></h3>
+                </div>
             </div>
         )
     }
 
+    /**
+     * If the active variable is true, return the string "testPageContainer containerActive". If the
+     * secondShow variable is true, return the string "testPageContainer secondShow". Otherwise, return
+     * the string "testPageContainer"
+     * @returns A string
+     */
     const makeClassName = ()=>{
         if(active) return "testPageContainer containerActive"
         else if (secondShow) return "testPageContainer secondShow"
