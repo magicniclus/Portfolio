@@ -20,6 +20,9 @@ const SkillText = (props) => {
         udateLight()
     }, [])
 
+    /**
+     * It will change the light randomly every 2-6 seconds.
+     */
     const udateLight = ()=>{
         setInterval(async ()=>{
             const randomIndex = Math.floor(Math.random()*5)
@@ -27,6 +30,12 @@ const SkillText = (props) => {
         }, numberRandom(2000, 6000))
     }
 
+    /**
+     * It returns a random number between the min and max values
+     * @param min - The minimum number that can be returned.
+     * @param max - The maximum number that can be generated.
+     * @returns A random number between the min and max values.
+     */
     const numberRandom = (min, max)=>{
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
