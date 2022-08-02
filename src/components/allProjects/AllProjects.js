@@ -9,6 +9,7 @@ import threeJs from "../../assets/terabois/four.jpg"
 import { projects } from "../utils/projects"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import Content from './components/Content';
 
 const AllProjects = (props) => {
     //GSAP
@@ -31,6 +32,7 @@ const AllProjects = (props) => {
                 trigger: observer,
                 toggleActions: "play complete reverse reverse",
                 start: "50% 50%",
+                end: "90% 20%",
                 // markers: true
             }
         })
@@ -139,10 +141,6 @@ const AllProjects = (props) => {
         setSecondShow(true)
     }
 
-    const showContent = ()=>{
-
-    }
-
     /**
      * It returns a div with a className of containerLeft, which contains a div with a className of
      * back, which has an onClick event handler that calls the handleClickBack function
@@ -157,13 +155,7 @@ const AllProjects = (props) => {
                        <span onClick={handleClickBack}>Back</span> 
                     </div>
                 </div>
-                <div className="contentContainer">
-                    {/* {
-                        projects.map(x=>
-                            x.id === blockActive? <p key={x.title}>{x.title}</p> : null
-                        )
-                    } */}
-                </div>
+                <Content content={projects} active={blockActive}/>
             </div>
         )
     }
