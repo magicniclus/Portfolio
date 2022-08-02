@@ -1,0 +1,33 @@
+@import "../../../styles/settings.scss";
+
+.contentContainer{
+    width: calc(100% - 500px);
+    height: 70vh;
+    // background-color: aqua;
+    .titleContainer{
+        max-width: 500px;
+        margin-bottom: 1rem;
+        height: 250px;
+        display: flex;
+        align-items: flex-end;
+        h3{
+            font-size: $h3;
+            font-weight: 400;
+        }
+    }
+    .cityContainer{
+        margin-bottom: 1rem;
+        max-width: 500px;
+        h4{
+            font-size: $p;
+            font-weight: 100;
+        }
+    }
+    .paramsContainer{
+        max-width: 500px;
+        overflow: hidden;
+        p{
+            font-size: $h2;
+        }
+    }
+}
