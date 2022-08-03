@@ -101,8 +101,9 @@
                 animation-duration: 0.5s;
                 animation-timing-function: ease-in-out;
                 animation-fill-mode: forwards;
-                background-color: azure;
-                opacity: 0.3;
+                transition: height;
+                transition-duration: 0.3s;
+                transition-timing-function: ease-in-out;
                 transition: opacity;
                 transition-duration: 0.5s;
                 transition-timing-function: ease-in-out;
@@ -118,7 +119,7 @@
                 animation-delay: 0.3s;
             }
             .active{
-                opacity: 1;
+
                 img{
                     filter: grayscale(0);
                 }
