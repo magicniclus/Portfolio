@@ -7,7 +7,6 @@ const Content = (props) => {
     //Gsap
     const tl = useRef()
 
-    const refTitle = useRef(null)
     const refCity = useRef(null)
     const refParams = useRef(null)
 
@@ -17,12 +16,11 @@ const Content = (props) => {
     useEffect(()=>{
         tl.current = gsap.timeline({
             default:{
-                duration: 0.3,
+                duration: 1,
                 ease: "Power4.inOut"
             }
         })
-        .fromTo(refTitle.current, {y: 500}, {y:0, delay:0.6})
-        .fromTo(refCity.current, {y: 200}, {y:0}, "<+=0.2")
+        .fromTo(refCity.current, {y: 200}, {y:0, duration: 1})
         .fromTo(refParams.current, {x: -500}, {x:0},"-=0.1")
     },[])
 
@@ -34,7 +32,7 @@ const Content = (props) => {
         })
         lineRefs.current.map((el, i )=> {
             if(i === 0){
-                timeline.fromTo(el, {y: 300}, {autoAlpha:1, y:0, duration: 0.5, ease: "Power4.inOut", delay: 1})
+                timeline.fromTo(el, {y: 300}, {autoAlpha:1, y:0, duration: 0.5, ease: "Power4.inOut", delay: 0.5})
             }else{
                 timeline.fromTo(el, {y: 300}, {autoAlpha:1, y:0, duration: 0.5, ease: "Power4.inOut"},"-=0.4")
             }
@@ -76,7 +74,7 @@ const Content = (props) => {
      * @param color - the color of the letters
      * @returns A div with a span inside of it.
      */
-    const changingAllLettersOfAWordToSpanInDiv = (word, color, ref)=>{
+    const changingAllLettersOfAWordToSpanInDiv = (word, color)=>{
         return(
             <>
                 {
@@ -94,7 +92,6 @@ const Content = (props) => {
         return(
             <>
                 <div className="titleContainer">
-                    {/* <h3 ref={refTitle} style={{color: content.textColor}} className='title'>{changeTheFirstLettersToUppercase(content.title)}</h3> */}
                     {
                         changingAllLettersOfAWordToSpanInDiv(changeTheFirstLettersToUppercase(content.title), content.textColor, changeTheFirstLettersToUppercase(content.title))
                     }
