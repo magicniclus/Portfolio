@@ -11,6 +11,9 @@ const Content = (props) => {
     const refCity = useRef(null)
     const refParams = useRef(null)
 
+    const lineRefs = useRef([]);
+    lineRefs.current = []
+
     useEffect(()=>{
         tl.current = gsap.timeline({
             default:{
@@ -22,6 +25,21 @@ const Content = (props) => {
         .fromTo(refCity.current, {y: 200}, {y:0}, "<+=0.2")
         .fromTo(refParams.current, {x: -500}, {x:0},"-=0.1")
     },[])
+
+    useEffect(()=>{
+        const timeline = gsap.timeline({
+            default:{
+                ease: "Power4.inOut"
+            }
+        })
+        lineRefs.current.map((el, i )=> {
+            if(i === 0){
+                timeline.fromTo(el, {y: 300}, {autoAlpha:1, y:0, duration: 0.5, ease: "Power4.inOut", delay: 1})
+            }else{
+                timeline.fromTo(el, {y: 300}, {autoAlpha:1, y:0, duration: 0.5, ease: "Power4.inOut"},"-=0.4")
+            }
+        })
+    }, [])
 
     //component
     const content = props.content;
@@ -45,6 +63,12 @@ const Content = (props) => {
         return word.split("")
     }
 
+    const addToRef = (el)=>{
+        if(el && !lineRefs.current.includes(el)){
+            lineRefs.current.push(el)
+        }
+    }  
+
     /**
      * It takes a word and a color as parameters, and returns a div with a span for each letter of the
      * word, with the color of the span being the color passed in as a parameter
@@ -52,12 +76,12 @@ const Content = (props) => {
      * @param color - the color of the letters
      * @returns A div with a span inside of it.
      */
-    const changingAllLettersOfAWordToSpanInDiv = (word, color)=>{
+    const changingAllLettersOfAWordToSpanInDiv = (word, color, ref)=>{
         return(
             <>
                 {
-                    changeTheWordAnArray(word).map(letter =>
-                        <div key={letter} className={"letterTitleContainer " + letter}>
+                    changeTheWordAnArray(word).map((letter, i) =>
+                        <div ref={addToRef} key={letter} className={"letterTitleContainer " + letter}>
                             <span style={{color:color}}>{letter}</span>
                         </div>    
                     )
@@ -72,7 +96,7 @@ const Content = (props) => {
                 <div className="titleContainer">
                     {/* <h3 ref={refTitle} style={{color: content.textColor}} className='title'>{changeTheFirstLettersToUppercase(content.title)}</h3> */}
                     {
-                        changingAllLettersOfAWordToSpanInDiv(changeTheFirstLettersToUppercase(content.title), content.textColor)
+                        changingAllLettersOfAWordToSpanInDiv(changeTheFirstLettersToUppercase(content.title), content.textColor, changeTheFirstLettersToUppercase(content.title))
                     }
                 </div>
                 <div className="cityContainer">
