@@ -27,6 +27,7 @@
                 justify-content: end;
                 text-align: end;
                 margin-top: 2.4rem;
+                overflow: hidden;
                 svg{
                     margin-right: 0.5rem;
                 }
@@ -34,6 +35,14 @@
                     cursor: pointer;
                     font-size: $btn;
                     margin-right: 5rem;
+                }
+                svg, span{
+                    transform: translateY(30px);
+                    animation-name: showBackButtonAnimation;
+                    animation-duration: 0.5s;
+                    animation-delay: 0.5s;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: ease-in-out;
                 }
             }
         }
@@ -206,5 +215,15 @@
         transform: perspective(150px) rotate3d(0,1,1,0deg);
         opacity: 1;
         width: 700px;
+    }
+}
+
+@keyframes showBackButtonAnimation {
+    0%{
+        transform: translateY(30px);
+    }
+
+    100%{
+        transform: translateY(0);
     }
 }
