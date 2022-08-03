@@ -22,6 +22,8 @@ const AllProjects = (props) => {
     const blockThreeRef = useRef(null)
     const blockFourRef = useRef(null)
 
+    const refReturn = useRef(null)
+
     useEffect(()=>{
         tl.current = gsap.timeline({
             defaults:{
@@ -33,7 +35,6 @@ const AllProjects = (props) => {
                 toggleActions: "play complete reverse reverse",
                 start: "50% 50%",
                 end: "90% 20%",
-                // markers: true
             }
         })
         .fromTo(blockOneRef.current, {y: 150}, {y:0, delay:1})
@@ -150,7 +151,7 @@ const AllProjects = (props) => {
         return(
             <div className="containerLeft">
                 <div className="topContainer">
-                    <div className='back'>
+                    <div ref={refReturn} className='back'>
                         <FontAwesomeIcon icon={faChevronLeft} />
                        <span onClick={handleClickBack}>Back</span> 
                     </div>
