@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./_content.scss"
 import { gsap } from "gsap";
+import { Timeline } from 'gsap/gsap-core';
 
 const Content = (props) => {
     const content = props.content;
@@ -16,7 +17,9 @@ const Content = (props) => {
     
     const refCity = useRef(null)
     const newRefCity = useRef(null)
+
     const refParams = useRef(null)
+    const newRefParams = useRef(null)
     
     const lineRefs = useRef([]);
     lineRefs.current = []
@@ -37,7 +40,7 @@ const Content = (props) => {
             }
         })
         .fromTo(refCity.current, {y: 200}, {y:0, duration: 1, opacity:1})
-        .fromTo(refParams.current, {x: -500}, {x:0},"-=0.1")
+        .fromTo(refParams.current, {x: -500}, {x:0, opacity: 1},"-=0.1")
     },[])
 
     /* Creating a timeline that will animate the letters of the title. */
@@ -92,7 +95,7 @@ const Content = (props) => {
                 }
             })
             timeline.fromTo(refCity.current, {},{opacity: 0, duration: 0.3, ease: "Power4.inOut"})
-        }, 300)
+        }, 100)
     }
     
     const secondUpdateCityStyle = () =>{
@@ -102,6 +105,28 @@ const Content = (props) => {
             }
         })
         timeline.fromTo(newRefCity.current, {opacity: 0, y: 300},{opacity: 1, y:0, duration: 1, ease: "Power4.inOut"})
+    }
+
+    const updateParamsStyle = ()=>{
+        setTimeout(()=>{
+            const timeline = gsap.timeline({
+                default:{
+                    ease: "Power4.inOut"
+                }
+            })
+            timeline.fromTo(refParams.current, {},{opacity: 0, duration: 0.3, ease: "Power4.inOut"})
+        }, 100)
+    }
+
+
+    const secondUpdateParamsStyle = ()=>{
+        const timeline = gsap.timeline({
+            default:{
+                duration: 1,
+                ease: "Power4.inOut"
+            }
+        })
+        .fromTo(refParams.current, {x: -500}, {x:0, opacity: 1, delay: 0.9})
     }
     
     //component
@@ -134,10 +159,12 @@ const Content = (props) => {
             await setNewContent(content[blockActive -1])
             await updateTwoLineRefs()
             await updateCityStyle()
+            await updateParamsStyle()
             await setTimeout(()=>{
                 setOldContent(content[blockActive -1])
                 updateLineRefs()
                 secondUpdateCityStyle()
+                secondUpdateParamsStyle()
             }, 300)
         }    
     }
@@ -234,6 +261,29 @@ const Content = (props) => {
         }
     }
 
+    const updateParams = (content)=>{
+        if(counter <= 1){
+            return(
+                <>
+                    <div className="thirsParamsContainer">
+                    <p ref={refParams} className='params'>{content.text}</p>
+                    </div>
+                </>
+            )
+        }else{
+            return(
+                <>
+                    <div className="thirsParamsContainer">
+                    <p ref={refParams} className='params'>{changeTheFirstLettersToUppercase(oldContent.text)}</p>
+                    </div>
+                    <div className="secondParamsContainer">
+                    <p ref={newRefParams} className='params'>{changeTheFirstLettersToUppercase(newContent.text)}</p>
+                    </div>
+                </>
+            )
+        }
+    }
+
     /**
      * It takes a content object as an argument and returns a div with the title, city, and text of the
      * content object
@@ -252,10 +302,11 @@ const Content = (props) => {
                     {
                         content !== null ? updateCity(content): null
                     }
-                     {/* <h4 ref={refCity} className='city'>{changeTheFirstLettersToUppercase(content.city)}, <span className='date'>{changeTheFirstLettersToUppercase(content.years)}</span></h4> */}
                 </div>
                 <div className="paramsContainer">
-                    <p ref={refParams} className='params'>{content.text}</p>
+                    {
+                        content !== null ? updateParams(content): null
+                    }
                 </div>
             </>
         )
