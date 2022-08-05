@@ -9,7 +9,7 @@
     .titleContainer{
         width: 800px;
         margin-bottom: 1rem;
-        height: 300px;
+        height: 200px;
         display: flex;
         align-items: flex-end;
         flex-wrap: wrap;
@@ -21,6 +21,7 @@
             bottom: 0;
             display: flex;
             overflow: hidden;
+            height: 130px;
             .letterTitleContainer{
                 opacity: 0;
                 display: flex;
