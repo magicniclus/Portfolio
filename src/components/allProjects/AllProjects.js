@@ -27,8 +27,8 @@ const AllProjects = (props) => {
     useEffect(()=>{
         tl.current = gsap.timeline({
             defaults:{
-                duration: 0.3,
-                ease: "Power4.inOut"
+                duration: 0.7,
+                ease: "power4.out"
             },
             scrollTrigger: {
                 trigger: observer,
@@ -38,9 +38,9 @@ const AllProjects = (props) => {
             }
         })
         .fromTo(blockOneRef.current, {y: 150}, {y:0, delay:1})
-        .fromTo(blockTwoRef.current, {y: 150}, {y:0}, "-=0.1")
-        .fromTo(blockThreeRef.current, {y: 150}, {y:0}, "-=0.1")
-        .fromTo(blockFourRef.current, {y: 150}, {y:0}, "-=0.1")
+        .fromTo(blockTwoRef.current, {y: 150}, {y:0}, "-=0.6")
+        .fromTo(blockThreeRef.current, {y: 150}, {y:0}, "-=0.6")
+        .fromTo(blockFourRef.current, {y: 150}, {y:0}, "-=0.6")
     }, [])
 
     
@@ -182,15 +182,19 @@ const AllProjects = (props) => {
                 <div className="blockContainer">
                     <div className={blockOne} onClick={()=>handleClick(1)}>
                         <img ref={blockOneRef} src={magma} alt="terabois" />
+                        {/* <p>terabois</p> */}
                     </div>
                     <div className={blockTwo} onClick={()=>handleClick(2)}>
                         <img ref={blockTwoRef} src={maisonsur} alt="maisonsur" />
+                        {/* <p>maison sur</p> */}
                     </div>
                     <div className={blockThree} onClick={()=>handleClick(3)}>
                         <img ref={blockThreeRef} src={magma} alt="magma" />
+                        {/* <p>magma</p> */}
                     </div>
                     <div className={blockFour} onClick={()=>handleClick(4)}>    
                         <img ref={blockFourRef} src={threeJs} alt="threejs" /> 
+                        {/* <p>threejs</p> */}
                     </div>
                 </div>
             </div>
