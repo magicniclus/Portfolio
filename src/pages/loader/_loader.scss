@@ -1,0 +1,90 @@
+@import "../../styles/settings.scss";
+
+.loader{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+    color: $clearPrimary;
+    background-color: $darkPrimary;
+    .svgContainer{ 
+        
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 30;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg{
+            height: 100vh;
+        }
+    }
+    .topContainer{
+        width: 100vw;
+        .number{
+            width: 95%;
+            display: flex;
+            justify-content: end;
+            p{
+                font-size: $h3;
+                span{
+                    font-size: $span;
+                }
+            }
+        }
+    }
+    .bottomContainer{
+        width: 100vw;
+        position: relative;
+        height: 20%;
+        .loaderAnnimationOne, .loaderAnnimationTwo{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            font-size: $h1;
+            position: absolute;
+            top: 0;
+        }
+        .loaderAnnimationOne{
+            left: 0;
+            animation-name: annimationThistLoader;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear;
+        }
+        .loaderAnnimationTwo{
+            left: -100vw;
+            animation-name: annimationSecondLoader;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function:linear;
+        }
+    }
+}
+@keyframes annimationThistLoader {
+    0%{
+        left: 0;
+    }
+
+    100%{
+        left: 100vw;
+    }
+}
+@keyframes annimationSecondLoader {
+    0%{
+        left: -100vw;
+    }
+
+    100%{
+        left: 0;
+    }
+}

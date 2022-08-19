@@ -6,6 +6,9 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
 import AllProjects from '../../components/allProjects/AllProjects';
+import { useDispatch, useSelector } from 'react-redux';
+import { homePageLoading } from '../../redux/actions/actions';
+import Loader from '../loader/Loader';
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(Observer);
@@ -38,10 +41,17 @@ const HomePage = () => {
 
     const tl = useRef();
 
-    //Manage load
+    const dispatch = useDispatch();
+
+    const isLoading = useSelector(state=>state.isLoading)
+
+    // Manage load
     useEffect(()=>{
         window.addEventListener('load', (event) => {
             console.log('page is fully loaded');
+            // setTimeout(()=>{
+            //     dispatch(homePageLoading())
+            // }, 3000)
         });
     })
 
@@ -255,7 +265,12 @@ const HomePage = () => {
     }
 
     return (
-        <>
+        <>  
+            {
+                /* A ternary operator that checks if the isLoading variable is true. If it is, it will
+                return the Loader component. If it is not, it will return null. */
+                isLoading ? <Loader /> : null
+            }
             <header className='homePageHeader'>
                 <div className="topContainer">
                     <div className="titleContainer">
