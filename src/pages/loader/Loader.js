@@ -1,7 +1,6 @@
 import React from 'react';
-import "./_loader.scss";
-import ellipse from '../../assets/svg/Ellipse.svg';
 import BackgroudSVG from './component/BackgroudSVG';
+import "./_loader.scss";
 
 const Loader = () => {
     return (

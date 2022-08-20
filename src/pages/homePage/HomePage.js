@@ -49,9 +49,9 @@ const HomePage = () => {
     useEffect(()=>{
         window.addEventListener('load', (event) => {
             console.log('page is fully loaded');
-            // setTimeout(()=>{
-            //     dispatch(homePageLoading())
-            // }, 3000)
+            setTimeout(()=>{
+                dispatch(homePageLoading())
+            }, 5000)
         });
     })
 

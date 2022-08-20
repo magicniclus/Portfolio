@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans', sans-serif;
+    cursor: none;
 }
 
 body{
@@ -14,4 +15,30 @@ body{
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+.cursorPerso{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    pointer-events: none;
+    z-index: 1000;
+    transition: all;
+    // transition-duration: 0.05s;
+    // background-color: $clearPrimary;
+    // mix-blend-mode:difference;
+}
+.cursorPerso::before{
+    content: "";
+    height: 2px;
+    width: 2px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

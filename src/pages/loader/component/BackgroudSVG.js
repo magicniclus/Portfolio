@@ -27,7 +27,7 @@ const BackgroudSVG = () => {
                     .to(pathOne.current, {
                         attr: { d: end },
                     }, "-=0.3")
-            }, 2000)
+            }, 3300)
         }
     }, [isLoading])
 
@@ -40,4 +40,4 @@ const BackgroudSVG = () => {
     );
 };
 
-export default BackgroudSVG;
+export default BackgroudSVG; 
