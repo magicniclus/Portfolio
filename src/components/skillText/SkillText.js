@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef  } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import "./_skillText.scss"
 import moi from "../../assets/me/moi-optimizate.jpg"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cursorDifferenceLeave, cursorDifferenceOver } from '../../redux/actions/actions';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,9 +42,21 @@ const SkillText = (props) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    const dispatch = useDispatch()
+
+    const changeCursorOver = ()=>{
+        dispatch(cursorDifferenceOver())
+        setShowSkillText(true)
+    }
+
+    const changeCursorLeave = ()=>{
+        dispatch(cursorDifferenceLeave())
+        console.log('leave');
+    }
+
     return (
         <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
-            <div ref={text}  onMouseEnter={()=>setShowSkillText(true)}  className='lignContainer'>
+            <div ref={text}  onMouseEnter={changeCursorOver}  onMouseOut={changeCursorLeave} className='lignContainer'>
                 <div className="lignOneContainer container">
                     <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                 </div> 

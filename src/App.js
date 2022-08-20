@@ -13,6 +13,8 @@ function App() {
 
   const loading = useSelector(state => state.isLoading)
 
+  const cursorUpdate = useSelector(state=>state.cursorDifference)
+
   const [whatPage, setWhatPage] = useState(<Loader />)
 
   useEffect(()=>{
@@ -25,7 +27,7 @@ function App() {
 
   return (
     <div onMouseMove={cursorTraker} className="app">
-      <div className="cursorPerso" ref={cursor}></div>
+      <div className={cursorUpdate ? "cursorPerso difference" : "cursorPerso"} ref={cursor}></div>
       <BrowserRouter >
         <Routes>
           <Route path="/accueil" element={<HomePage />}/>

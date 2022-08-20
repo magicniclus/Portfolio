@@ -1,5 +1,6 @@
 const initState = {
     isLoading: true,
+    cursorDifference : false
 }
 
 const reducer = (state = initState, action) => {
@@ -9,6 +10,18 @@ const reducer = (state = initState, action) => {
                 ...state,
                 isLoading: false
             }
+
+        case "cursorDifferenceOver":
+            return{
+                ...state,
+                cursorDifference: true
+            }  
+
+        case "cursorDifferenceLeave":
+            return{
+                ...state,
+                cursorDifference: false
+            }      
 
         default: return state
     }
