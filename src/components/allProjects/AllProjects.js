@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import "./_allProjects.scss"
-import terabois from "../../assets/terabois/one.jpg"
 import maisonsur from "../../assets/terabois/two.jpg"
 import magma from "../../assets/terabois/three.jpg"
 import threeJs from "../../assets/terabois/four.jpg"
@@ -10,6 +9,8 @@ import { projects } from "../utils/projects"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import Content from './components/Content';
+import { useDispatch, useSelector } from 'react-redux';
+import { projectIsClose, projectIsOpen } from '../../redux/actions/actions';
 
 const AllProjects = (props) => {
     //GSAP
@@ -45,6 +46,10 @@ const AllProjects = (props) => {
 
     
     //Component
+    const dispatch = useDispatch();
+
+    const handleProject = useSelector(state=>state.projectIsOpen);
+
     const lockScroller = props.lockScroller;
     const setLockScroller = props.setLockScroller;
 
@@ -132,6 +137,7 @@ const AllProjects = (props) => {
         setActive(true)
         setBlockActive(value)
         whatHandle ? handleNameBlockOne(value): handleNameBlockTwo(value)
+        dispatch(projectIsOpen())
     }
 
     /**
@@ -140,6 +146,7 @@ const AllProjects = (props) => {
     const handleClickBack = ()=>{
         setActive(false)
         setSecondShow(true)
+        dispatch(projectIsClose())
     }
 
     /**
@@ -182,11 +189,9 @@ const AllProjects = (props) => {
                 <div className="blockContainer">
                     <div className={blockOne} onClick={()=>handleClick(1)}>
                         <img ref={blockOneRef} src={magma} alt="terabois" />
-                        {/* <p>terabois</p> */}
                     </div>
                     <div className={blockTwo} onClick={()=>handleClick(2)}>
                         <img ref={blockTwoRef} src={maisonsur} alt="maisonsur" />
-                        {/* <p>maison sur</p> */}
                     </div>
                     <div className={blockThree} onClick={()=>handleClick(3)}>
                         <img ref={blockThreeRef} src={magma} alt="magma" />
@@ -194,7 +199,6 @@ const AllProjects = (props) => {
                     </div>
                     <div className={blockFour} onClick={()=>handleClick(4)}>    
                         <img ref={blockFourRef} src={threeJs} alt="threejs" /> 
-                        {/* <p>threejs</p> */}
                     </div>
                 </div>
             </div>
