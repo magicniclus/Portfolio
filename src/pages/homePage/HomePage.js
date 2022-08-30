@@ -42,8 +42,8 @@ const HomePage = () => {
     const tl = useRef();
 
     const dispatch = useDispatch();
-
-    const isLoading = useSelector(state=>state.isLoading)
+    const isLoading = useSelector(state => state.isLoading);
+    const state = useSelector(state => state)
 
     // Manage load
     useEffect(()=>{
@@ -180,57 +180,52 @@ const HomePage = () => {
                 y:40
             }, '<') 
         }else{
-            if(!isLoading){
-                setTimeout(()=>{
-                    
-                }, 10000)
-                tl.current = gsap.timeline({
-                    defaults: {
-                        duration: 0.04,
-                        ease: "Power2.inOut",
-                        opacity: 1
-                    }
-                })
-                .to(h.current,{
-                    y: 0,
-                })
-                .to(i.current,{
-                    y: 0
-                })
-                .to(y.current,{
-                    y: 0
-                })
-                .to(o.current,{
-                    y: 0
-                })
-                .to(u.current,{
-                    y: 0
-                })
-                .to(point.current,{
-                    y: 0
-                })   
-                .to(buttonOne.current, {
-                    y:0,
-                    duration: 0.6
-                }, 0)    
-                .to(buttonTwo.current, {
-                    y:0,
-                    duration: 0.6
-                }, '<')  
-                .to(buttonThree.current, {
-                    y:0,
-                    duration: 0.6
-                }, '<')  
-                .to(buttonFour.current, {
-                    y:0,
-                    duration: 0.6
-                }, '<')
-                .to(buttonContact.current, {
-                    y:0
-                }, '<') 
-            }
+            tl.current = gsap.timeline({
+                defaults: {
+                    duration: 0.04,
+                    ease: "Power2.inOut",
+                    opacity: 1
+                }
+            })
+            .to(h.current,{
+                y: 0,
+            })
+            .to(i.current,{
+                y: 0
+            })
+            .to(y.current,{
+                y: 0
+            })
+            .to(o.current,{
+                y: 0
+            })
+            .to(u.current,{
+                y: 0
+            })
+            .to(point.current,{
+                y: 0
+            })   
+            .to(buttonOne.current, {
+                y:0,
+                duration: 0.6
+            }, 0)    
+            .to(buttonTwo.current, {
+                y:0,
+                duration: 0.6
+            }, '<')  
+            .to(buttonThree.current, {
+                y:0,
+                duration: 0.6
+            }, '<')  
+            .to(buttonFour.current, {
+                y:0,
+                duration: 0.6
+            }, '<')
+            .to(buttonContact.current, {
+                y:0
+            }, '<') 
         }
-    })
+    }, [lockScroller])
 
     //TL Manage scroll section apparition
     useEffect(() => {
