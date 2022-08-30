@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./_content.scss"
 import { gsap } from "gsap";
-import { Timeline } from 'gsap/gsap-core';
 
 const Content = (props) => {
     const content = props.content;
