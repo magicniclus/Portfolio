@@ -51,6 +51,7 @@ const HomePage = () => {
             console.log('page is fully loaded');
             setTimeout(()=>{
                 dispatch(homePageLoading())
+                window.scrollTo(0, 0);
             }, 5000)
         });
     })
@@ -60,7 +61,6 @@ const HomePage = () => {
 
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
         let sectionTwoSelect = document.querySelector("#root > div > main > section.sectionTwo")
-
         tl.current = gsap.timeline({
             defaults:{
                 duration: 0.2,
@@ -107,33 +107,36 @@ const HomePage = () => {
 
     //TL Manage appartion background text
     useEffect(()=>{
-        tl.current = gsap.timeline({
-            defaults: {
-                duration: 0.1,
-                ease: "Power2.inOut",
-                opacity: 1
-            }
-        })
-        .to(h.current,{
-            y: 0,
-        })
-        .to(i.current,{
-            y: 0
-        })
-        .to(y.current,{
-            y: 0
-        })
-        .to(o.current,{
-            y: 0
-        })
-        .to(u.current,{
-            y: 0
-        })
-        .to(point.current,{
-            y: 0
-        })
+        if(!isLoading){
+            tl.current = gsap.timeline({
+                defaults: {
+                    duration: 0.1,
+                    ease: "Power2.inOut",
+                    opacity: 1
+                }
+            })
+            .to(h.current,{
+                y: 0,
+            })
+            .to(i.current,{
+                y: 0
+            })
+            .to(y.current,{
+                y: 0
+            })
+            .to(o.current,{
+                y: 0
+            })
+            .to(u.current,{
+                y: 0
+            })
+            .to(point.current,{
+                y: 0
+            })
+        }
     }, [])
 
+    //manage project apparition
     useEffect(()=>{
         if(lockScroller){
             tl.current = gsap.timeline({
@@ -177,50 +180,55 @@ const HomePage = () => {
                 y:40
             }, '<') 
         }else{
-            tl.current = gsap.timeline({
-                defaults: {
-                    duration: 0.04,
-                    ease: "Power2.inOut",
-                    opacity: 1
-                }
-            })
-            .to(h.current,{
-                y: 0,
-            })
-            .to(i.current,{
-                y: 0
-            })
-            .to(y.current,{
-                y: 0
-            })
-            .to(o.current,{
-                y: 0
-            })
-            .to(u.current,{
-                y: 0
-            })
-            .to(point.current,{
-                y: 0
-            })   
-            .to(buttonOne.current, {
-                y:0,
-                duration: 0.6
-            }, 0)    
-            .to(buttonTwo.current, {
-                y:0,
-                duration: 0.6
-            }, '<')  
-            .to(buttonThree.current, {
-                y:0,
-                duration: 0.6
-            }, '<')  
-            .to(buttonFour.current, {
-                y:0,
-                duration: 0.6
-            }, '<')
-            .to(buttonContact.current, {
-                y:0
-            }, '<') 
+            if(!isLoading){
+                setTimeout(()=>{
+                    
+                }, 10000)
+                tl.current = gsap.timeline({
+                    defaults: {
+                        duration: 0.04,
+                        ease: "Power2.inOut",
+                        opacity: 1
+                    }
+                })
+                .to(h.current,{
+                    y: 0,
+                })
+                .to(i.current,{
+                    y: 0
+                })
+                .to(y.current,{
+                    y: 0
+                })
+                .to(o.current,{
+                    y: 0
+                })
+                .to(u.current,{
+                    y: 0
+                })
+                .to(point.current,{
+                    y: 0
+                })   
+                .to(buttonOne.current, {
+                    y:0,
+                    duration: 0.6
+                }, 0)    
+                .to(buttonTwo.current, {
+                    y:0,
+                    duration: 0.6
+                }, '<')  
+                .to(buttonThree.current, {
+                    y:0,
+                    duration: 0.6
+                }, '<')  
+                .to(buttonFour.current, {
+                    y:0,
+                    duration: 0.6
+                }, '<')
+                .to(buttonContact.current, {
+                    y:0
+                }, '<') 
+            }
         }
     })
 
