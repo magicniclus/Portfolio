@@ -1,6 +1,7 @@
 const initState = {
     isLoading: true,
-    cursorDifference : false
+    cursorDifference: false,
+    projectIsOpen: false
 }
 
 const reducer = (state = initState, action) => {
@@ -21,7 +22,19 @@ const reducer = (state = initState, action) => {
             return{
                 ...state,
                 cursorDifference: false
-            }      
+            }    
+            
+        case "projectIsOpen":
+            return{
+                ...state,
+                projectIsOpen: true
+            }     
+            
+        case "projectIsClose":
+            return{
+                ...state,
+                projectIsOpen: false
+            } 
 
         default: return state
     }
