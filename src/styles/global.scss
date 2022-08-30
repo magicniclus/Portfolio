@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans', sans-serif;
-    cursor: none;
+    // cursor: none;
 }
 
 body{
@@ -25,7 +25,7 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 50%;
     left: 30%;
-    pointer-events: none;
+    // pointer-events: none;
     z-index: 1000;
     transition: all;
     // transition-duration: 0.05s;
@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
 }
 .difference{
     background-color: $clearPrimary;
-    mix-blend-mode:difference;
+    // mix-blend-mode:difference;
 }
 .cursorPerso::before{
     content: "";
