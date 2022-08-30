@@ -15,3 +15,15 @@ export const cursorDifferenceLeave = ()=>{
         type: "cursorDifferenceLeave"
     }
 }
+
+export const projectIsOpen = ()=>{
+    return{
+        type: "projectIsOpen"
+    }
+}
+
+export const projectIsClose = ()=>{
+    return{
+        type: "projectIsClose"
+    }
+}
