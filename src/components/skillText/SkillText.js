@@ -13,10 +13,14 @@ const SkillText = (props) => {
 
     const [showSkillText, setShowSkillText] = useState(false);
 
+    const [ready, setReady] = useState(false)
+
     const [light, setLight] = useState("");
 
     const text = useRef(null);
     const image = useRef(null);
+
+    const isLoading = useSelector(state=>state.isLoading)
 
     useEffect(()=>{
         udateLight()
@@ -44,48 +48,56 @@ const SkillText = (props) => {
 
     const dispatch = useDispatch()
 
-    const changeCursorOver = ()=>{
+    const changeCursorOver = async ()=>{
         dispatch(cursorDifferenceOver())
-        setShowSkillText(true)
+        if(!ready) await ready
+        else setShowSkillText(true)
     }
+
+    useEffect(()=>{
+        if(!isLoading){
+            setTimeout(()=>{
+                setReady(true)
+            }, 2000)
+        }
+    }, [isLoading])
 
     const changeCursorLeave = ()=>{
         dispatch(cursorDifferenceLeave())
-        console.log('leave');
     }
 
     return (
         <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
             <div ref={text}  onMouseEnter={changeCursorOver}  onMouseOut={changeCursorLeave} className='lignContainer'>
                 <div className="lignOneContainer container">
-                    <p className='lign lignOne'>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
+                    <p className={!isLoading ? 'lign' : ""}>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                 </div> 
                 <div className="lignTwoContainer container">
-                    <p className="lign lignTwo">when lookingat its layout. The point of using more-or-less sites</p> 
+                    <p className={!isLoading ? 'lign' : ""}>when lookingat its layout. The point of using more-or-less sites</p> 
                 </div>
                 <div className="lignThreeContainer container">
-                    <p className="lign lignThree">Lorem Ipsum is that it has a more-or-less normal distribution, </p>
+                    <p className={!isLoading ? 'lign' : ""}>Lorem Ipsum is that it has a more-or-less normal distribution, </p>
                 </div>
                 <div className="lignFourContainer container">
-                    <p className="lign lignFour">as opposed to using 'Conten tweb sites still in here sometimes.</p>
+                    <p className={!isLoading ? 'lign' : ""}>as opposed to using 'Conten tweb sites still in here sometimes.</p>
                 </div>
                 <div className="lignFiveContainer container">
-                    <p className="lign lignFive">'lorem ipsum' will uncover many sites still in Ipsum <span className={light === "gsap" ? 'gsapText show' : "gsapText"}>Gsap</span> infancy. </p>
+                    <p className={!isLoading ? 'lign' : ""}>'lorem ipsum' will uncover many sites still in Ipsum <span className={light === "gsap" ? 'gsapText show' : "gsapText"}>Gsap</span> infancy. </p>
                 </div>
                 <div className="lignSixContainer container">
-                    <p className="lign lignSix">Now use Many desktop <span className={light === "react" ? 'reactText show' : "reactText"}>react</span> packages and web page editors </p> 
+                    <p className={!isLoading ? 'lign' : ""}>Now use Many desktop <span className={light === "react" ? 'reactText show' : "reactText"}>react</span> packages and web page editors </p> 
                 </div>
                 <div className="lignSevenContainer container">
-                    <p className="lign lignSeven">It is a long established sometimes by accident<span className={light === "jest" ? 'jestText show' : "jestText"}>jest</span> will be distracted.</p>
+                    <p className={!isLoading ? 'lign' : ""}>It is a long established sometimes by accident<span className={light === "jest" ? 'jestText show' : "jestText"}>jest</span> will be distracted.</p>
                 </div>
                 <div className="lignEightContainer container">
-                    <p className="lign lignEight">Now use Lorem Ipsum as their default model text, and a search for</p>
+                    <p className={!isLoading ? 'lign' : ""}>Now use Lorem Ipsum as their default model text, and a search for</p>
                 </div>
                 <div className="lignNineContainer container">
-                    <p className="lign lignNine">'lorem ipsum' will still in The point of using<span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> infancy. Various </p>
+                    <p className={!isLoading ? 'lign' : ""}>'lorem ipsum' will still in The point of using<span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> infancy. Various </p>
                 </div>
                 <div className="lignTenContainer container">
-                    <p className="lign lignTen">versions have evolved over the years, sometimes by accident</p>
+                    <p className={!isLoading ? 'lign' : ""}>versions have evolved over the years, sometimes by accident</p>
                 </div>
             </div>
             <div ref={image} className="imgContainer">
