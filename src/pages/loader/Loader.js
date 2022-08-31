@@ -11,10 +11,10 @@ const Loader = () => {
             <BackgroudSVG />
             <div className="topContainer">
                 <div className="number">
-                    <p>
+                    {/* <p>
                         95
                         <span className='pourcent'>%</span>
-                    </p>
+                    </p> */}
                 </div>
             </div>
             <div className="bottomContainer">
