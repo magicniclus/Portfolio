@@ -20,6 +20,7 @@
         flex-direction: column;
         justify-content: space-between;
         .topContainer{
+            cursor: pointer;
             .back{
                 width: calc(100% - 400px);
                 display: flex;
