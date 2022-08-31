@@ -44,6 +44,7 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.isLoading);
     const projectIsOpen = useSelector(state=> state.projectIsOpen)
+    const backgroundColor = useSelector(state => state.color)
 
     // Manage load
     useEffect(()=>{
@@ -262,7 +263,7 @@ const HomePage = () => {
      */
     const sectionTwo = () => {
         return (
-            <section ref={sectionTwoRef}className="sectionTwo">
+            <section ref={sectionTwoRef}className="sectionTwo" style={projectIsOpen ? {zIndex: "10000"}: {zIndex: "0"}}>
                 <AllProjects observer={locationTwo} location={sectionTwoRef} setLockScroller={setLockScroller} lockScroller={lockScroller} />
             </section>
         )
@@ -275,7 +276,7 @@ const HomePage = () => {
                 return the Loader component. If it is not, it will return null. */
                 isLoading ? <Loader /> : null
             }
-            <header className='homePageHeader'>
+            {/* <header className='homePageHeader'>
                 <div className="topContainer">
                     <div className="titleContainer">
                         <h1 className='title'>Nicolas Castera</h1>
@@ -303,8 +304,16 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
+            </header> */}
+            <header className='homePageHeader'>
+                <div className="topContainer">
+                    <div className="titleContainer">
+                        <h1 className='title'>Nicolas Castera</h1>
+                        <h2 className="skill">Frontend developper</h2>
+                    </div>
+                </div>
             </header>
-            <main ref={homePage} className='homePageMain'>
+            <main ref={homePage} className='homePageMain' style={{backgroundColor: backgroundColor}}>
                 <div className="hiYou">
                     <div className='hiYouContainer'>
                         <div ref={h} className="cards">
@@ -341,6 +350,29 @@ const HomePage = () => {
                     makeScroll ? sectionTwo() : null
                 }
             </main>
+            <footer>
+                <div className="bottomContainer">
+                    <div className="reseauxContainer">
+                        <div className="buttonContainer">
+                            <button ref={buttonOne} className="reseaux github">Github</button>
+                        </div>
+                        <div className="buttonContainer">
+                            <button ref={buttonTwo} className="reseaux instagram">Instagram</button>
+                        </div>
+                        <div className="buttonContainer">
+                            <button ref={buttonThree} className="reseaux tweeter">Tweeter</button>
+                        </div>
+                        <div className="buttonContainer">
+                            <button ref={buttonFour} className="reseaux linkedin">Linkedin</button>
+                        </div>
+                    </div>
+                    <div className="contactContainer">
+                        <div className="buttonContainer">
+                            <button ref={buttonContact} className="contact">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </>
     );
 };
