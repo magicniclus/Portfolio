@@ -7,7 +7,7 @@ export let projects = [
         text: "Terabois ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
         skills: ["React", "Sass", "Redux", "GSAP", "Strapi"],
         img: "one.jpg",
-        color: "RGBA(200,193,189,0.2)",
+        color: "RGBA(186,165,179,0.2)",
         textColor: "#4194A3"
     },
     {
@@ -40,7 +40,7 @@ export let projects = [
         text: "Three-js ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
         skills: ["React", "Sass", "Redux", "GSAP", "Strapi"],
         img: "four.jpg",
-        color: "RGBA(237,234,230,0.2)",
+        color: "RGBA(98,58,51,0.2)",
         textColor: "#333132"
     }
 ]
