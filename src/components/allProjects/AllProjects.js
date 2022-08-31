@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import Content from './components/Content';
 import { useDispatch, useSelector } from 'react-redux';
-import { projectIsClose, projectIsOpen } from '../../redux/actions/actions';
+import { changeColor, projectIsClose, projectIsOpen } from '../../redux/actions/actions';
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(Observer);
@@ -137,6 +137,12 @@ const AllProjects = (props) => {
         }
     }
 
+    const changeBackgroundColor = (index)=>{
+        console.log(projects[index-1].color);
+        dispatch(changeColor(projects[index-1].color))
+        // console.log(state.color);
+    }
+
     /**
      * It sets the active state to true, sets the blockActive state to the value passed in, and then
      * calls the handleNameBlockOne or handleNameBlockTwo function depending on the value of the
@@ -147,6 +153,7 @@ const AllProjects = (props) => {
         setActive(true)
         setBlockActive(value)
         whatHandle ? handleNameBlockOne(value): handleNameBlockTwo(value)
+        changeBackgroundColor(value)
         dispatch(projectIsOpen())
     }
 
@@ -156,6 +163,7 @@ const AllProjects = (props) => {
     const handleClickBack = async ()=>{
         await setActive(false)
         await setSecondShow(true)
+        await dispatch(changeColor("#EDEAE6"))
         await dispatch(projectIsClose())
         await location.current.scrollIntoView()
     }
