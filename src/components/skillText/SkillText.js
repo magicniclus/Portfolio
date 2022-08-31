@@ -4,7 +4,6 @@ import "./_skillText.scss"
 import moi from "../../assets/me/moi-optimizate.jpg"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cursorDifferenceLeave, cursorDifferenceOver } from '../../redux/actions/actions';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -49,7 +48,6 @@ const SkillText = (props) => {
     const dispatch = useDispatch()
 
     const changeCursorOver = async ()=>{
-        dispatch(cursorDifferenceOver())
         if(!ready) await ready
         else setShowSkillText(true)
     }
@@ -61,14 +59,9 @@ const SkillText = (props) => {
             }, 2000)
         }
     }, [isLoading])
-
-    const changeCursorLeave = ()=>{
-        dispatch(cursorDifferenceLeave())
-    }
-
     return (
         <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
-            <div ref={text}  onMouseEnter={changeCursorOver}  onMouseOut={changeCursorLeave} className='lignContainer'>
+            <div ref={text}  onMouseEnter={changeCursorOver} className='lignContainer'>
                 <div className="lignOneContainer container">
                     <p className={!isLoading ? 'lign' : ""}>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
                 </div> 
