@@ -17,9 +17,7 @@ gsap.registerPlugin(ScrollTrigger)
 const HomePage = () => {
     const [showSkillText, setShowSkillText] = useState(true);
     const [makeScroll, setMakeScroll] = useState(true);
-    const [lockScroller, setLockScroller] = useState(false)
-    
-    const height = window.innerHeight;
+    const [lockScroller, setLockScroller] = useState(false);
 
     let locationOne;
     let locationTwo;
@@ -50,7 +48,6 @@ const HomePage = () => {
     // Manage load
     useEffect(()=>{
         window.addEventListener('load', (event) => {
-            // console.log('page is fully loaded');
             setTimeout(()=>{
                 dispatch(homePageLoading())
                 window.scrollTo(0, 0);
@@ -60,7 +57,6 @@ const HomePage = () => {
 
     //TL Manage scrolltrigger
     useEffect(() => {
-
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
         let sectionTwoSelect = document.querySelector("#root > div > main > section.sectionTwo")
         tl.current = gsap.timeline({
@@ -242,7 +238,7 @@ const HomePage = () => {
 
     /* Creating an observer that will trigger the scrollTo function when the user scrolls up or down. */
     useEffect(()=>{
-        if (makeScroll) {
+        if (makeScroll && projectIsOpen===false) {
             Observer.create({
                 target: homePage.current,
                 type: "wheel",
@@ -250,11 +246,7 @@ const HomePage = () => {
                     gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
                 },
                 onUp: () => {
-                    if(!projectIsOpen){
-                        gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
-                    }else{
-                        gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
-                    }
+                    gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
                 },
                 tolerance: 10,
                 preventDefault: true,
