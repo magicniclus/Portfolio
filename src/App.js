@@ -12,6 +12,7 @@ function App() {
   let cursor = useRef()
 
   const loading = useSelector(state => state.isLoading)
+  const projectIsOpen = useSelector(state => state.projectIsOpen)
 
   const cursorUpdate = useSelector(state=>state.cursorDifference)
 
@@ -21,13 +22,8 @@ function App() {
     if(loading)setWhatPage(<HomePage />)
   }, [loading])
 
-  // const cursorTraker = e => {
-  //   cursor.current.setAttribute('style', `top: ${e.pageY - 20}px; left:${e.pageX - 20}px;`)
-  // }
-
   return (
-    <div  className="app">
-      {/* <div className={cursorUpdate ? "cursorPerso difference" : "cursorPerso"} ref={cursor}></div> */}
+    <div  className="app" style={projectIsOpen ? {height: '100vh', overflow: "hidden"} : {height: '100%', overflow: "auto"}}>
       <BrowserRouter >
         <Routes>
           <Route path="/accueil" element={<HomePage />}/>
