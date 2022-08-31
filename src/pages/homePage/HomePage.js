@@ -18,6 +18,8 @@ const HomePage = () => {
     const [showSkillText, setShowSkillText] = useState(true);
     const [makeScroll, setMakeScroll] = useState(true);
     const [lockScroller, setLockScroller] = useState(false)
+    
+    const height = window.innerHeight;
 
     let locationOne;
     let locationTwo;
@@ -43,12 +45,12 @@ const HomePage = () => {
 
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.isLoading);
-    const state = useSelector(state => state)
+    const projectIsOpen = useSelector(state=> state.projectIsOpen)
 
     // Manage load
     useEffect(()=>{
         window.addEventListener('load', (event) => {
-            console.log('page is fully loaded');
+            // console.log('page is fully loaded');
             setTimeout(()=>{
                 dispatch(homePageLoading())
                 window.scrollTo(0, 0);
@@ -108,6 +110,7 @@ const HomePage = () => {
     //TL Manage appartion background text
     useEffect(()=>{
         if(!isLoading){
+            setTimeout(()=>{}, 2000)
             tl.current = gsap.timeline({
                 defaults: {
                     duration: 0.1,
@@ -134,7 +137,7 @@ const HomePage = () => {
                 y: 0
             })
         }
-    }, [])
+    }, [isLoading])
 
     //manage project apparition
     useEffect(()=>{
@@ -179,7 +182,7 @@ const HomePage = () => {
             .to(buttonContact.current, {
                 y:40
             }, '<') 
-        }else{
+        }else if(!isLoading && !lockScroller){
             tl.current = gsap.timeline({
                 defaults: {
                     duration: 0.04,
@@ -238,20 +241,26 @@ const HomePage = () => {
     }, [window.scrollY])
 
     /* Creating an observer that will trigger the scrollTo function when the user scrolls up or down. */
-    if (makeScroll) {
-        Observer.create({
-            target: homePage.current,
-            type: "wheel",
-            onDown: () => {
-                gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
-            },
-            onUp: () => {
-                gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
-            },
-            tolerance: 10,
-            preventDefault: true,
-        })
-    }
+    useEffect(()=>{
+        if (makeScroll) {
+            Observer.create({
+                target: homePage.current,
+                type: "wheel",
+                onDown: () => {
+                    gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
+                },
+                onUp: () => {
+                    if(!projectIsOpen){
+                        gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
+                    }else{
+                        gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
+                    }
+                },
+                tolerance: 10,
+                preventDefault: true,
+            })
+        }
+    }, [])
 
     /**
      * It returns a section element with a ref attribute that references the sectionTwoRef variable, a
@@ -261,8 +270,8 @@ const HomePage = () => {
      */
     const sectionTwo = () => {
         return (
-            <section ref={sectionTwoRef} className="sectionTwo">
-                <AllProjects observer={locationTwo} setLockScroller={setLockScroller} lockScroller={lockScroller} />
+            <section ref={sectionTwoRef}className="sectionTwo">
+                <AllProjects observer={locationTwo} location={sectionTwoRef} setLockScroller={setLockScroller} lockScroller={lockScroller} />
             </section>
         )
     }
@@ -332,7 +341,8 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                <section ref={sectionOneRef} className="sectionOne">
+                {/* <section ref={sectionOneRef} className="sectionOne" > */}
+                <section ref={sectionOneRef} className={projectIsOpen ? "sectionOne invisible" : "sectionOne"} >
                     <SkillText timeline={tl} translate={200} show={showSkillText} observation={locationTwo} />
                 </section>
                 {
