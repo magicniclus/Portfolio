@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { Observer } from "gsap/Observer";
 import "./_allProjects.scss"
 import maisonsur from "../../assets/terabois/two.jpg"
 import magma from "../../assets/terabois/three.jpg"
@@ -12,9 +14,16 @@ import Content from './components/Content';
 import { useDispatch, useSelector } from 'react-redux';
 import { projectIsClose, projectIsOpen } from '../../redux/actions/actions';
 
+gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(Observer);
+
 const AllProjects = (props) => {
+
+    const state = useSelector(state => state)
+
     //GSAP
     const observer = props.observer;
+    const location = props.location;
 
     const tl = useRef();
 
@@ -23,32 +32,33 @@ const AllProjects = (props) => {
     const blockThreeRef = useRef(null)
     const blockFourRef = useRef(null)
 
+    let locationOne;
+    let locationTwo;
+
     const refReturn = useRef(null)
 
     useEffect(()=>{
-        tl.current = gsap.timeline({
-            defaults:{
-                duration: 0.7,
-                ease: "power4.out"
-            },
-            scrollTrigger: {
-                trigger: observer,
-                toggleActions: "play complete reverse reverse",
-                start: "50% 50%",
-                end: "90% 20%",
-            }
-        })
-        .fromTo(blockOneRef.current, {y: 150}, {y:0, delay:1})
-        .fromTo(blockTwoRef.current, {y: 150}, {y:0}, "-=0.6")
-        .fromTo(blockThreeRef.current, {y: 150}, {y:0}, "-=0.6")
-        .fromTo(blockFourRef.current, {y: 150}, {y:0}, "-=0.6")
+            tl.current = gsap.timeline({
+                defaults:{
+                    duration: 0.7,
+                    ease: "power4.out"
+                },
+                scrollTrigger: {
+                    trigger: observer,
+                    toggleActions: "play",   
+                    start: "50% 50%",
+                    end: "90% 20%"
+                }
+            })
+            .fromTo(blockOneRef.current, {y: 150}, {y:0, autoAlpha:1, delay:1})
+            .fromTo(blockTwoRef.current, {y: 150}, {y:0, autoAlpha:1}, "-=0.6")
+            .fromTo(blockThreeRef.current, {y: 150}, {y:0, autoAlpha:1}, "-=0.6")
+            .fromTo(blockFourRef.current, {y: 150}, {y:0, autoAlpha:1}, "-=0.6")
     }, [])
 
     
     //Component
     const dispatch = useDispatch();
-
-    const handleProject = useSelector(state=>state.projectIsOpen);
 
     const lockScroller = props.lockScroller;
     const setLockScroller = props.setLockScroller;
@@ -143,10 +153,11 @@ const AllProjects = (props) => {
     /**
      * It sets the active state to false and the secondShow state to true.
      */
-    const handleClickBack = ()=>{
-        setActive(false)
-        setSecondShow(true)
-        dispatch(projectIsClose())
+    const handleClickBack = async ()=>{
+        await setActive(false)
+        await setSecondShow(true)
+        await dispatch(projectIsClose())
+        await location.current.scrollIntoView()
     }
 
     /**
@@ -158,9 +169,9 @@ const AllProjects = (props) => {
         return(
             <div className="containerLeft">
                 <div className="topContainer">
-                    <div ref={refReturn} className='back'>
+                    <div onClick={handleClickBack} ref={refReturn} className='back'>
                         <FontAwesomeIcon icon={faChevronLeft} />
-                       <span onClick={handleClickBack}>Back</span> 
+                       <span>Back</span> 
                     </div>
                 </div>
                 <Content content={projects} active={blockActive}/>
@@ -188,14 +199,13 @@ const AllProjects = (props) => {
             <div className={makeClassName()}>
                 <div className="blockContainer">
                     <div className={blockOne} onClick={()=>handleClick(1)}>
-                        <img ref={blockOneRef} src={magma} alt="terabois" />
+                        <img ref={blockOneRef} style={state.projectIsOpen ? {transform: "translate(0px,0px)"}: {transform: "none"}} src={magma} alt="terabois" />
                     </div>
                     <div className={blockTwo} onClick={()=>handleClick(2)}>
                         <img ref={blockTwoRef} src={maisonsur} alt="maisonsur" />
                     </div>
                     <div className={blockThree} onClick={()=>handleClick(3)}>
                         <img ref={blockThreeRef} src={magma} alt="magma" />
-                        {/* <p>magma</p> */}
                     </div>
                     <div className={blockFour} onClick={()=>handleClick(4)}>    
                         <img ref={blockFourRef} src={threeJs} alt="threejs" /> 
