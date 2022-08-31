@@ -27,3 +27,10 @@ export const projectIsClose = ()=>{
         type: "projectIsClose"
     }
 }
+
+export const changeColor = payload =>{
+    return{
+        type: "changeColor",
+        payload: payload
+    }
+}
