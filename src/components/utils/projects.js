@@ -27,7 +27,7 @@ export let projects = [
         id: 3,
         title: "Fish Eye",
         city: "Bordeaux",
-        years: "2020",
+        years: "2022",
         text: "Fish Eye est une plateforme de photographe leurs permettant de montrer leurs projets à leurs clients.",
         skills: ["Javascript", "Sass",],
         img: "three.jpg",
