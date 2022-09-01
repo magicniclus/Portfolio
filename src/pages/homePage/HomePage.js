@@ -290,7 +290,7 @@ const HomePage = () => {
             <header className='homePageHeader'>
                 <div className="topContainer">
                     <div className="titleContainer">
-                        <h1 style={{color: textColor}} className='title'>Nicolas Casta</h1>
+                        <h1 style={{color: textColor}} className='title'>Nicolas Castera</h1>
                         <h2 style={{color: textColor}} className="skill">Frontend developper</h2>
                     </div>
                 </div>
