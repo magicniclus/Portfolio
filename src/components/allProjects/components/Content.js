@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./_content.scss"
 import { gsap } from "gsap";
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Content = (props) => {
     const content = props.content;
@@ -304,12 +305,17 @@ const Content = (props) => {
                     }
                 </div>
                 <div className='techno'>
-                    {
-                        content.skills.map((skill, i) => (
-                            <span className='skill' key={i}>{skill}{i < content.skills.length - 1 ? " || " : null}</span>
-                        ))
-                    }
-                    <button className='navigation' onClick={()=>content !== null ? window.open(content.link) : null}>Check this project</button>
+                    <div className="skills">
+                        {
+                            content.skills.map((skill, i) => (
+                                <span style={{color:content.textColor}} className='skill' key={i}>{skill}{i < content.skills.length - 1 ? " || " : null}</span>
+                            ))
+                        }
+                    </div>
+                    <div onClick={()=>content !== null ? window.open(content.link) : null} className="buttonContainer">
+                        <button style={{color:content.textColor}} className='navigation'>Check this project</button>
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={content.textColor} />
+                    </div>
                 </div>
                 <div className="paramsContainer">
                     {
