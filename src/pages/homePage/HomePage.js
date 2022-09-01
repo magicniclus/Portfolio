@@ -336,17 +336,17 @@ const HomePage = () => {
                 <div className="bottomContainer">
                     <div className="reseauxContainer">
                         <div className="buttonContainer">
-                            <button ref={buttonOne} className="reseaux github">Github</button>
+                            <button ref={buttonOne} className="reseaux github" onClick={()=> window.open("https://github.com/magicniclus")}>Github</button>
                         </div>
                         <div className="buttonContainer">
-                            <button ref={buttonTwo} className="reseaux instagram">Instagram</button>
+                            <button ref={buttonThree} className="reseaux tweeter" onClick={()=> window.open("https://twitter.com/CasteranicolasC")}>Tweeter</button>
                         </div>
                         <div className="buttonContainer">
-                            <button ref={buttonThree} className="reseaux tweeter">Tweeter</button>
+                            <button ref={buttonFour} className="reseaux linkedin" onClick={()=> window.open("https://www.linkedin.com/in/nicolas-castera-771a45a6/")}>Linkedin</button>
                         </div>
-                        <div className="buttonContainer">
-                            <button ref={buttonFour} className="reseaux linkedin">Linkedin</button>
-                        </div>
+                        {/* <div className="buttonContainer">
+                            <button ref={buttonTwo} className="reseaux instagram" onClick={()=> window.open("")}>Instagram</button>
+                        </div> */}
                     </div>
                     <div className="contactContainer">
                         <div className="buttonContainer">
