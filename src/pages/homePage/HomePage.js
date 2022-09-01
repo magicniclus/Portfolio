@@ -43,8 +43,9 @@ const HomePage = () => {
 
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.isLoading);
-    const projectIsOpen = useSelector(state=> state.projectIsOpen)
-    const backgroundColor = useSelector(state => state.color)
+    const projectIsOpen = useSelector(state=> state.projectIsOpen);
+    const backgroundColor = useSelector(state => state.color);
+    const textColor = useSelector(state => state.textColor);
 
     // Manage load
     useEffect(()=>{
@@ -60,49 +61,51 @@ const HomePage = () => {
     useEffect(() => {
         let sectionOneSelect = document.querySelector("#root > div > main > section.sectionOne")
         let sectionTwoSelect = document.querySelector("#root > div > main > section.sectionTwo")
-        tl.current = gsap.timeline({
-            defaults:{
-                duration: 0.2,
-                ease: "Power4.inOut"
-            },
-            scrollTrigger: {
-                trigger: sectionTwoSelect,
-                start: "top 50%",
-                toggleActions: "play complete reverse reverse",
-            }
-        })
-        .to(
-            h.current, {
-                rotationY: -180,
-            }, "-=0.1"
-        )
-        .to(
-            i.current,{
-                rotationY: -180,
-            }, "-=0.1"
-        )
-        .to(
-            y.current,{
-                rotationY: -180,
-            }, "-=0.1"
-        )
-        .to(
-            o.current,{
-                rotationY: -180,
-            }, "-=0.1"
-        )
-        .to(
-            u.current,{
-                rotationY: -180,
-            }, "-=0.1"
-        )
-        .to(
-            point.current,{
-                rotationY: -180,
-            }, "-=0.1"
-        )
-        .reverse()
-    }, [])
+        if(!isLoading){
+            tl.current = gsap.timeline({
+                defaults:{
+                    duration: 0.2,
+                    ease: "Power4.inOut"
+                },
+                scrollTrigger: {
+                    trigger: sectionTwoSelect,
+                    start: "top 50%",
+                    toggleActions: "play complete reverse reverse",
+                }
+            })
+            .to(
+                h.current, {
+                    rotationY: -180,
+                }, "-=0.1"
+            )
+            .to(
+                i.current,{
+                    rotationY: -180,
+                }, "-=0.1"
+            )
+            .to(
+                y.current,{
+                    rotationY: -180,
+                }, "-=0.1"
+            )
+            .to(
+                o.current,{
+                    rotationY: -180,
+                }, "-=0.1"
+            )
+            .to(
+                u.current,{
+                    rotationY: -180,
+                }, "-=0.1"
+            )
+            .to(
+                point.current,{
+                    rotationY: -180,
+                }, "-=0.1"
+            )
+            .reverse()
+        }
+    }, [isLoading])
 
     //TL Manage appartion background text
     useEffect(()=>{
@@ -284,40 +287,11 @@ const HomePage = () => {
                 return the Loader component. If it is not, it will return null. */
                 isLoading ? <Loader /> : null
             }
-            {/* <header className='homePageHeader'>
-                <div className="topContainer">
-                    <div className="titleContainer">
-                        <h1 className='title'>Nicolas Castera</h1>
-                        <h2 className="skill">Frontend developper</h2>
-                    </div>
-                </div>
-                <div className="bottomContainer">
-                    <div className="reseauxContainer">
-                        <div className="buttonContainer">
-                            <button ref={buttonOne} className="reseaux github">Github</button>
-                        </div>
-                        <div className="buttonContainer">
-                            <button ref={buttonTwo} className="reseaux instagram">Instagram</button>
-                        </div>
-                        <div className="buttonContainer">
-                            <button ref={buttonThree} className="reseaux tweeter">Tweeter</button>
-                        </div>
-                        <div className="buttonContainer">
-                            <button ref={buttonFour} className="reseaux linkedin">Linkedin</button>
-                        </div>
-                    </div>
-                    <div className="contactContainer">
-                        <div className="buttonContainer">
-                            <button ref={buttonContact} className="contact">Contact</button>
-                        </div>
-                    </div>
-                </div>
-            </header> */}
             <header className='homePageHeader'>
                 <div className="topContainer">
                     <div className="titleContainer">
-                        <h1 className='title'>Nicolas Castera</h1>
-                        <h2 className="skill">Frontend developper</h2>
+                        <h1 style={{color: textColor}} className='title'>Nicolas Castera</h1>
+                        <h2 style={{color: textColor}} className="skill">Frontend developper</h2>
                     </div>
                 </div>
             </header>
