@@ -242,7 +242,7 @@ const Content = (props) => {
             return(
                 <>
                     <div className="thirsCityContainer">
-                        <h4 ref={refCity} className='city'>{changeTheFirstLettersToUppercase(content.city)}, <span className='date'>{changeTheFirstLettersToUppercase(content.years)}</span></h4>
+                        <h4 style={{color:content.textColor}} ref={refCity} className='city'>{changeTheFirstLettersToUppercase(content.city)}, <span className='date'>{changeTheFirstLettersToUppercase(content.years)}</span></h4>
                     </div>
                 </>
             )
@@ -250,10 +250,10 @@ const Content = (props) => {
             return(
                 <>
                     <div className="thirsCityContainer">
-                            <h4 ref={refCity} className='city'>{changeTheFirstLettersToUppercase(oldContent.city)}, <span className='date'>{changeTheFirstLettersToUppercase(oldContent.years)}</span></h4>
+                            <h4 ref={refCity} style={{color:content.textColor}} className='city'>{changeTheFirstLettersToUppercase(oldContent.city)}, <span className='date'>{changeTheFirstLettersToUppercase(oldContent.years)}</span></h4>
                     </div>
                     <div className="secondCityContainer">
-                            <h4 ref={newRefCity} className='city'>{changeTheFirstLettersToUppercase(newContent.city)}, <span className='date'>{changeTheFirstLettersToUppercase(newContent.years)}</span></h4>
+                            <h4 ref={newRefCity} style={{color:content.textColor}} className='city'>{changeTheFirstLettersToUppercase(newContent.city)}, <span className='date'>{changeTheFirstLettersToUppercase(newContent.years)}</span></h4>
                     </div>
                 </>
             )
@@ -265,7 +265,7 @@ const Content = (props) => {
             return(
                 <>
                     <div className="thirsParamsContainer">
-                    <p ref={refParams} className='params'>{content.text}</p>
+                    <p style={{color:content.textColor}} ref={refParams} className='params'>{content.text}</p>
                     </div>
                 </>
             )
@@ -273,10 +273,10 @@ const Content = (props) => {
             return(
                 <>
                     <div className="thirsParamsContainer">
-                    <p ref={refParams} className='params'>{changeTheFirstLettersToUppercase(oldContent.text)}</p>
+                    <p style={{color:content.textColor}} ref={refParams} className='params'>{changeTheFirstLettersToUppercase(oldContent.text)}</p>
                     </div>
                     <div className="secondParamsContainer">
-                    <p ref={newRefParams} className='params'>{changeTheFirstLettersToUppercase(newContent.text)}</p>
+                    <p style={{color:content.textColor}} ref={newRefParams} className='params'>{changeTheFirstLettersToUppercase(newContent.text)}</p>
                     </div>
                 </>
             )
