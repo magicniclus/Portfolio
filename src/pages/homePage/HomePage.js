@@ -235,7 +235,7 @@ const HomePage = () => {
             locationOne = sectionOneSelect.offsetTop;
             locationTwo = sectionTwoSelect.offsetTop;
         }
-    }, [window.scrollY])
+    }, [])
 
     /* Creating an observer that will trigger the scrollTo function when the user scrolls up or down. */
     useEffect(()=>{
@@ -247,13 +247,21 @@ const HomePage = () => {
                     gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
                 },
                 onUp: () => {
-                    gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
+                    if(!projectIsOpen){
+                        gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
+                    }else{
+                        gsap.to(window, { duration: 0.1, scrollTo: locationTwo, ease: "power1.out" });
+                    }
                 },
                 tolerance: 10,
                 preventDefault: true,
             })
         }
     }, [])
+
+    const sendMail = ()=>{
+        window.open('mailto:casteranicolas.contact@gmail.com?subject=Do%20we%20work%20together?&body=Hi%20Nicolas!')
+    }
 
     /**
      * It returns a section element with a ref attribute that references the sectionTwoRef variable, a
@@ -368,7 +376,7 @@ const HomePage = () => {
                     </div>
                     <div className="contactContainer">
                         <div className="buttonContainer">
-                            <button ref={buttonContact} className="contact">Contact</button>
+                            <button onClick={sendMail} ref={buttonContact} className="contact">Contact</button>
                         </div>
                     </div>
                 </div>
