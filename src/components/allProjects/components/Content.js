@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./_content.scss"
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 
 const Content = (props) => {
     const content = props.content;
@@ -302,6 +303,14 @@ const Content = (props) => {
                         content !== null ? updateCity(content): null
                     }
                 </div>
+                <div className='techno'>
+                    {
+                        content.skills.map((skill, i) => (
+                            <span className='skill' key={i}>{skill}{i < content.skills.length - 1 ? " || " : null}</span>
+                        ))
+                    }
+                    <button className='navigation' onClick={()=>content !== null ? window.open(content.link) : null}>Check this project</button>
+                </div>
                 <div className="paramsContainer">
                     {
                         content !== null ? updateParams(content): null
@@ -320,6 +329,7 @@ const Content = (props) => {
                     content.id === blockActive? showContent(content) : null
                 )
             }
+
         </div>
     );
 };
