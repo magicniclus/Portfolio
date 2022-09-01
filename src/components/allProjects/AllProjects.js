@@ -3,16 +3,17 @@ import { useState, useEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Observer } from "gsap/Observer";
-import "./_allProjects.scss"
-import maisonsur from "../../assets/terabois/two.jpg"
-import magma from "../../assets/terabois/three.jpg"
-import threeJs from "../../assets/terabois/four.jpg"
-import { projects } from "../utils/projects"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import "./_allProjects.scss";
+import petitPlats from "../../assets/projects/two.jpg";
+import terabois from "../../assets/projects/one.jpg";
+import fishEye from "../../assets/projects/three.jpg";
+import kaza from "../../assets/projects/four.jpg";
+import { projects } from "../utils/projects";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import Content from './components/Content';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeColor, projectIsClose, projectIsOpen } from '../../redux/actions/actions';
+import { changeColor, changeTextColor, projectIsClose, projectIsOpen } from '../../redux/actions/actions';
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(Observer);
@@ -62,6 +63,8 @@ const AllProjects = (props) => {
 
     const lockScroller = props.lockScroller;
     const setLockScroller = props.setLockScroller;
+
+    const [wellProject, setWellProject] = useState(0)
 
     const [active, setActive] = useState(false)
     const [secondShow, setSecondShow] = useState(false)
@@ -138,9 +141,7 @@ const AllProjects = (props) => {
     }
 
     const changeBackgroundColor = (index)=>{
-        console.log(projects[index-1].color);
         dispatch(changeColor(projects[index-1].color))
-        // console.log(state.color);
     }
 
     /**
@@ -154,6 +155,8 @@ const AllProjects = (props) => {
         setBlockActive(value)
         whatHandle ? handleNameBlockOne(value): handleNameBlockTwo(value)
         changeBackgroundColor(value)
+        setWellProject(value)
+        dispatch(changeTextColor(projects[value - 1].textColor))
         dispatch(projectIsOpen())
     }
 
@@ -165,6 +168,7 @@ const AllProjects = (props) => {
         await setSecondShow(true)
         await dispatch(changeColor("#EDEAE6"))
         await dispatch(projectIsClose())
+        await dispatch(changeTextColor("#373634"))
         await location.current.scrollIntoView()
     }
 
@@ -178,8 +182,8 @@ const AllProjects = (props) => {
             <div className="containerLeft">
                 <div className="topContainer">
                     <div onClick={handleClickBack} ref={refReturn} className='back'>
-                        <FontAwesomeIcon icon={faChevronLeft} />
-                       <span>Back</span> 
+                        <FontAwesomeIcon icon={faChevronLeft} color={projects[wellProject - 1].textColor} />
+                       <span style={{color: projects[wellProject - 1].textColor}}>Back</span> 
                     </div>
                 </div>
                 <Content content={projects} active={blockActive}/>
@@ -207,16 +211,16 @@ const AllProjects = (props) => {
             <div className={makeClassName()}>
                 <div className="blockContainer">
                     <div className={blockOne} onClick={()=>handleClick(1)}>
-                        <img ref={blockOneRef} style={state.projectIsOpen ? {transform: "translate(0px,0px)"}: {transform: "none"}} src={magma} alt="terabois" />
+                        <img ref={blockOneRef} style={state.projectIsOpen ? {transform: "translate(0px,0px)"}: {transform: "none"}} src={terabois} alt="terabois" />
                     </div>
                     <div className={blockTwo} onClick={()=>handleClick(2)}>
-                        <img ref={blockTwoRef} src={maisonsur} alt="maisonsur" />
+                        <img ref={blockTwoRef} src={petitPlats} alt="Les Petit Plats" />
                     </div>
                     <div className={blockThree} onClick={()=>handleClick(3)}>
-                        <img ref={blockThreeRef} src={magma} alt="magma" />
+                        <img ref={blockThreeRef} src={fishEye} alt="Fish Eye" />
                     </div>
                     <div className={blockFour} onClick={()=>handleClick(4)}>    
-                        <img ref={blockFourRef} src={threeJs} alt="threejs" /> 
+                        <img ref={blockFourRef} src={kaza} alt="kaza" /> 
                     </div>
                 </div>
             </div>
