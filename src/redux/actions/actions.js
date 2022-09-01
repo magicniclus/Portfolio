@@ -34,3 +34,10 @@ export const changeColor = payload =>{
         payload: payload
     }
 }
+
+export const changeTextColor = payload => {
+    return{
+        type:"changeTextColor",
+        payload: payload
+    }
+}

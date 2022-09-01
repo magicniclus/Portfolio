@@ -2,7 +2,8 @@ const initState = {
     isLoading: true,
     cursorDifference: false,
     projectIsOpen: false,
-    color: "#EDEAE6"
+    color: "#EDEAE6",
+    textColor: "#373634"
 }
 
 const reducer = (state = initState, action) => {
@@ -41,7 +42,14 @@ const reducer = (state = initState, action) => {
             return{
                 ...state,
                 color: action.payload
-            }    
+            } 
+            
+        case "changeTextColor": 
+            return{
+                ...state,
+                textColor: action.payload
+            }
+          
 
         default: return state
     }
