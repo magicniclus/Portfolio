@@ -52,6 +52,32 @@
             }
         }
     }
+    .techno{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        width: 60%;
+        max-width: 500px;
+        justify-content: space-between;
+        .skill{
+            font-size: $pSecondary;
+            font-weight: 100;
+        }
+        .buttonContainer{
+            cursor: pointer;
+            display: flex;
+            button{
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: $pSecondary;
+                font-weight: 100;
+            }
+            .svg-inline--fa{
+                margin-left: 1rem;
+            }
+        }
+    }
     .paramsContainer{
         max-width: 500px;
         overflow: hidden;
