@@ -11,7 +11,7 @@ function App() {
 
   let cursor = useRef()
 
-  const loading = useSelector(state => state.isLoading)
+  const isLoading = useSelector(state => state.isLoading)
   const projectIsOpen = useSelector(state => state.projectIsOpen)
 
   const cursorUpdate = useSelector(state=>state.cursorDifference)
@@ -19,11 +19,11 @@ function App() {
   const [whatPage, setWhatPage] = useState(<Loader />)
 
   useEffect(()=>{
-    if(loading)setWhatPage(<HomePage />)
-  }, [loading])
+    if(isLoading)setWhatPage(<HomePage />)
+  }, [isLoading])
 
   return (
-    <div  className="app" style={projectIsOpen ? {height: '100vh', overflow: "hidden"} : {height: '100%', overflow: "auto"}}>
+    <div  className="app" style={projectIsOpen || isLoading ? {height: '100vh', overflow: "hidden"} : {height: '100%', overflow: "auto"}}>
       <BrowserRouter >
         <Routes>
           <Route path="/accueil" element={<HomePage />}/>
