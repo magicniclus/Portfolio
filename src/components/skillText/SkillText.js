@@ -19,6 +19,7 @@ const SkillText = (props) => {
     const [lignName, setLignName] = useState("lign")
     const [imgName, setImgName] = useState("imgContainer")
     const [lignContainerNoAnimation, setLignContainerNoAnimation] = useState("visible")
+    const [containerAnnimation, setContainerAnimation] = useState('container')
 
     const text = useRef(null);
 
@@ -61,37 +62,38 @@ const SkillText = (props) => {
             }, 2000)
         }
     }, [isLoading || lignName])
+
     return (
         <div className={showSkillText ? "skillTextContainer " + lignContainerNoAnimation : "skillTextContainer"}>
             <div ref={text}  onMouseEnter={changeCursorOver} className='lignContainer'>
-                <div className="lignOneContainer container">
+                <div className={"lignOneContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>Jeune développeur passionné, ambitieux et très curieux, je voue une</p>
                 </div> 
-                <div className="lignTwoContainer container">
+                <div className={"lignTwoContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}> appétence particulière pour l’écosystème <span className={light === "js" ? 'jsText show' : "jsText"}>Javascript</span>. En veille constante </p> 
                 </div>
-                <div className="lignThreeContainer container">
+                <div className={"lignThreeContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>sur les nouvelles technologies, j’accorde un intérêt tout particulier </p>
                 </div>
-                <div className="lignFourContainer container">
+                <div className={"lignFourContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>pour  <span className={light === "react" ? 'reactText show' : "reactText"}>React</span>. J’ai complété mes compétences en Front avec le CMS </p>
                 </div>
-                <div className="lignFiveContainer container">
+                <div className={"lignFiveContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}><span className={light === "strapi" ? "strapiText show" : "strapiText"}>Strapi</span>  (API first) proposant entre autre une authentification des plus</p>
                 </div>
-                <div className="lignSixContainer container">
+                <div className={"lignSixContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>sécurisée, la gestion des permissions, de la création de contenu ainsi</p> 
                 </div>
-                <div className="lignSevenContainer container">
+                <div className={"lignSevenContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>qu’un générateur d’API REST rapide et efficace. J'attache une importance</p>
                 </div>
-                <div className="lignEightContainer container">
+                <div className={"lignEightContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>capitale au détail dans les animations avec <span className={light === "gsap" ? "gsapText show" : "GsapText"}>Gsap</span> ou encore <span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> pour un </p>
                 </div>
-                <div className="lignNineContainer container">
+                <div className={"lignNineContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>code optimisé et facilement compréhensible. À l’écoute de mes clients,</p>
                 </div>
-                <div className="lignTenContainer container">
+                <div className={"lignTenContainer "+containerAnnimation}>
                     <p className={!isLoading ? lignName : ""}>je saurai conseiller, orienter, et adapter mon savoir-faire a vos attentes.</p>
                 </div>
             </div>
