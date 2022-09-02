@@ -124,7 +124,7 @@ footer{
                     font-size: calc($btn + 50%);
                     border: none;
                     font-weight: 100;
-                    background-color: $clearPrimary;
+                    background: none;
                     text-align: left;
                     display: flex;
                     align-items: center;
@@ -143,6 +143,9 @@ footer{
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
     .hiYou {
         position: fixed;
         width: 90vw;
@@ -201,6 +204,7 @@ footer{
     }
     .invisible{
         display: none;
+        // visibility: none;
     }
 }
 
