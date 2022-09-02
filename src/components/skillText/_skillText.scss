@@ -146,16 +146,12 @@
         
         img{
             filter: grayscale(100%);
-            min-width: 725px;
-            min-height: 320px;
+            min-width: 630px;
+            height: 320px;
+            height: 30%;
             transform: translatey(350px);
         }
     } 
-    .imgContainerNoAnimation{
-        filter: grayscale(100%);
-        min-width: 725px;
-        min-height: 320px;
-    }
 }
 
 .visible{
@@ -205,14 +201,6 @@
             animation-delay: 1.3s;
             animation-fill-mode: forwards;
             animation-timing-function: ease-in-out;
-        }
-    }
-}
-
-.noAnimation{
-    .lignContainer{
-        .container{
-            margin-left: 0;
         }
     }
 }
@@ -280,5 +268,15 @@
     }
     100%{
         transform: translateY(0);
+    }
+}
+
+@keyframes opacity {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
     }
 }
