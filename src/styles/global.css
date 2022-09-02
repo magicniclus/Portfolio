@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  background-color: #EDEAE6;
+  color: #373634;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.cursorPerso {
+  width: 40px;
+  height: 40px;
+  border: 0.5px solid #373634;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  z-index: 1000;
+  -webkit-transition: all;
+  transition: all;
+  background-color: #EDEAE6;
+}
+
+.difference {
+  background-color: #EDEAE6;
+}
+
+.cursorPerso::before {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #373634;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=global.css.map */
