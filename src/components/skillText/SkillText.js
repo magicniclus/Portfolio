@@ -23,6 +23,7 @@ const SkillText = (props) => {
     const text = useRef(null);
 
     const isLoading = useSelector(state=>state.isLoading)
+    const projectIsOpen = useSelector(state => state.projectIsOpen)
 
     useEffect(()=>{
         udateLight()
@@ -51,10 +52,6 @@ const SkillText = (props) => {
     const changeCursorOver = async ()=>{
         if(!ready) await ready
         else setShowSkillText(true)
-        setTimeout(()=>{
-            setImgName("imgContainerNoAnimation")
-            setLignContainerNoAnimation('noAnimation')
-        }, 4000)
     }
 
     useEffect(()=>{
@@ -62,9 +59,6 @@ const SkillText = (props) => {
             setTimeout(()=>{
                 setReady(true)
             }, 2000)
-            setTimeout(()=>{
-                setLignName("lignNoAnimation")
-            }, 4000)
         }
     }, [isLoading || lignName])
     return (
