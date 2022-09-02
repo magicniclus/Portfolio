@@ -52,6 +52,9 @@
             font-size: $h1;
             position: absolute;
             top: 0;
+            .loaderContent{
+                font-size:  clamp(12px, 4vw, 64px);
+            }
         }
         .loaderAnnimationOne{
             left: 0;
