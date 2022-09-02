@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
 const SkillText = (props) => {
-    const showLight = ["js", "gsap", "react", "jest", "sass"];
+    const showLight = ["js", "gsap", "react", "sass", "strapi"];
 
     const [showSkillText, setShowSkillText] = useState(false);
 
@@ -16,8 +16,11 @@ const SkillText = (props) => {
 
     const [light, setLight] = useState("");
 
+    const [lignName, setLignName] = useState("lign")
+    const [imgName, setImgName] = useState("imgContainer")
+    const [lignContainerNoAnimation, setLignContainerNoAnimation] = useState("visible")
+
     const text = useRef(null);
-    const image = useRef(null);
 
     const isLoading = useSelector(state=>state.isLoading)
 
@@ -45,11 +48,13 @@ const SkillText = (props) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const dispatch = useDispatch()
-
     const changeCursorOver = async ()=>{
         if(!ready) await ready
         else setShowSkillText(true)
+        setTimeout(()=>{
+            setImgName("imgContainerNoAnimation")
+            setLignContainerNoAnimation('noAnimation')
+        }, 4000)
     }
 
     useEffect(()=>{
@@ -57,43 +62,46 @@ const SkillText = (props) => {
             setTimeout(()=>{
                 setReady(true)
             }, 2000)
+            setTimeout(()=>{
+                setLignName("lignNoAnimation")
+            }, 4000)
         }
-    }, [isLoading])
+    }, [isLoading || lignName])
     return (
-        <div className={showSkillText ? "skillTextContainer visible" : "skillTextContainer"}>
+        <div className={showSkillText ? "skillTextContainer " + lignContainerNoAnimation : "skillTextContainer"}>
             <div ref={text}  onMouseEnter={changeCursorOver} className='lignContainer'>
                 <div className="lignOneContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>It is a long established fact that a reader will be distracted <span className={light === "js" ? 'jsText show' : "jsText"}>Js</span></p>
+                    <p className={!isLoading ? lignName : ""}>Jeune développeur passionné, ambitieux et très curieux, je voue une</p>
                 </div> 
                 <div className="lignTwoContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>when lookingat its layout. The point of using more-or-less sites</p> 
+                    <p className={!isLoading ? lignName : ""}> appétence particulière pour l’écosystème <span className={light === "js" ? 'jsText show' : "jsText"}>Javascript</span>. En veille constante </p> 
                 </div>
                 <div className="lignThreeContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>Lorem Ipsum is that it has a more-or-less normal distribution, </p>
+                    <p className={!isLoading ? lignName : ""}>sur les nouvelles technologies, j’accorde un intérêt tout particulier </p>
                 </div>
                 <div className="lignFourContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>as opposed to using 'Conten tweb sites still in here sometimes.</p>
+                    <p className={!isLoading ? lignName : ""}>pour  <span className={light === "react" ? 'reactText show' : "reactText"}>React</span>. J’ai complété mes compétences en Front avec le CMS </p>
                 </div>
                 <div className="lignFiveContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>'lorem ipsum' will uncover many sites still in Ipsum <span className={light === "gsap" ? 'gsapText show' : "gsapText"}>Gsap</span> infancy. </p>
+                    <p className={!isLoading ? lignName : ""}><span className={light === "strapi" ? "strapiText show" : "strapiText"}>Strapi</span>  (API first) proposant entre autre une authentification des plus</p>
                 </div>
                 <div className="lignSixContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>Now use Many desktop <span className={light === "react" ? 'reactText show' : "reactText"}>react</span> packages and web page editors </p> 
+                    <p className={!isLoading ? lignName : ""}>sécurisée, la gestion des permissions, de la création de contenu ainsi</p> 
                 </div>
                 <div className="lignSevenContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>It is a long established sometimes by accident<span className={light === "jest" ? 'jestText show' : "jestText"}>jest</span> will be distracted.</p>
+                    <p className={!isLoading ? lignName : ""}>qu’un générateur d’API REST rapide et efficace. J'attache une importance</p>
                 </div>
                 <div className="lignEightContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>Now use Lorem Ipsum as their default model text, and a search for</p>
+                    <p className={!isLoading ? lignName : ""}>capitale au détail dans les animations avec <span className={light === "gsap" ? "gsapText show" : "GsapText"}>Gsap</span> ou encore <span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> pour un </p>
                 </div>
                 <div className="lignNineContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>'lorem ipsum' will still in The point of using<span className={light === "sass" ? 'sassText show' : "sassText"}>Sass</span> infancy. Various </p>
+                    <p className={!isLoading ? lignName : ""}>code optimisé et facilement compréhensible. À l’écoute de mes clients,</p>
                 </div>
                 <div className="lignTenContainer container">
-                    <p className={!isLoading ? 'lign' : ""}>versions have evolved over the years, sometimes by accident</p>
+                    <p className={!isLoading ? lignName : ""}>je saurai conseiller, orienter, et adapter mon savoir-faire a vos attentes.</p>
                 </div>
             </div>
-            <div ref={image} className="imgContainer">
+            <div className={imgName}>
                 <img src={moi} alt="Nicolas Castera" />
             </div>
         </div>
