@@ -2,7 +2,7 @@
 
 :root{
     // All lign
-    --lignOne-width: 607px;
+    --lignOne-width: 652px;
     --lignTwo-width: 674px;
     --lignThree-width: 624px;
     --lignFour-width: 616px;
@@ -20,6 +20,63 @@
     --res-fontSize: calc(0.01 * 12vmin)
 }
 
+@media screen and(max-width: 1400px) {
+    :root{
+        --lignOne-width: 100%;
+        --lignTwo-width: 100%;
+        --lignThree-width: 100%;
+        --lignFour-width: 100%;
+        --lignFive-width: 100%;
+        --lignSix-width: 100%;
+        --lignSeven-width: 100%;
+        --lignEight-width: 100%;
+        --lignNine-width: 100%;
+        --lignTen-width: 100%;
+    }
+}
+
+@media screen and(max-width: 1400px) {
+    :root {
+        --marginLeftOne: auto;
+        --marginLeftTwo: auto;
+        --marginLeftThree: auto;
+        --marginLeftFour: auto;
+        --marginLeftFive: auto;
+        --marginLeftSix: auto;
+        --marginLeftSeven: auto;
+        --marginLeftHeight: auto;
+        --marginLeftNine: auto;
+        --marginLeftTen: auto;
+    }
+}
+
+@media screen and (min-width: 1401px) {
+    :root{
+        --marginLeftOne:  calc((var(--lignContainer-width) - var(--lignOne-width)) / 2);
+        --marginLeftTwo: calc((var(--lignContainer-width) - var(--lignTwo-width)) / 2);
+        --marginLeftThree: calc((var(--lignContainer-width) - var(--lignThree-width)) / 2);
+        --marginLeftFour: calc((var(--lignContainer-width) - var(--lignFour-width)) / 2);
+        --marginLeftFive: calc((var(--lignContainer-width) - var(--lignFive-width)) / 2);
+        --marginLeftSix: calc((var(--lignContainer-width) - var(--lignSix-width)) / 2);
+        --marginLeftSeven: calc((var(--lignContainer-width) - var(--lignSeven-width)) / 2);
+        --marginLeftHeight: calc((var(--lignContainer-width) - var(--lignEight-width)) / 2);
+        --marginLeftNine: calc((var(--lignContainer-width) - var(--lignNine-width)) / 2);
+        --marginLeftTen: calc((var(--lignContainer-width) - var(--lignTen-width)) / 2);
+    }
+}
+
+@media screen and(max-width: 1400px) {
+    :root{
+        --marginTransition: auto;
+    }
+}
+
+@media screen and (min-width: 1401px) {
+    :root{
+        --marginTransition: 0;
+    }
+}
+
 .skillTextContainer{
     z-index: 10;
     width: 95%;
@@ -35,9 +92,13 @@
     overflow: hidden;
     .lignContainer{
         height: 80%;
+        height: clamp(30%, 50vw, 80%);
         max-height: 320px;
-        width: 50%;
-        font-size: 21px;
+        width: 52%;
+        @media screen and (max-width: 1400px) {
+            width: 95%;
+        }
+        // font-size: 21px;
         font-weight: $fWP;
         z-index: 8;
         display: flex;
@@ -49,11 +110,17 @@
             animation-timing-function:ease-in;
         }
         .container{
-            height: 31px;
+            // height: 31px;
+            height: clamp(10px, 5vw, 31px);
             margin-right: auto;
+            font-size: clamp(18px, 1.5vw, 21px);
+            @media screen and (max-width: 1024px) {
+                font-size: clamp(8px, 2vw, 18px);
+            }
             .lign{
                 transform: translatey(35px);
                 animation-name: apparitionText;
+                text-align: center;
                 animation-duration: 0.3s;
                 animation-delay: 1s;
                 animation-fill-mode: forwards;
@@ -62,12 +129,12 @@
             }
         }
         .lignOneContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignOne-width)) / 2);
+            margin-left: var(--marginLeftOne);
             width: var(--lignOne-width);
             overflow: hidden;
         }
         .lignTwoContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignTwo-width)) / 2);
+            margin-left: var(--marginLeftTwo);
             width: var(--lignTwo-width);
             overflow: hidden;
             .lign{
@@ -75,7 +142,7 @@
             }
         }
         .lignThreeContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignThree-width)) / 2);
+            margin-left: var(--marginLeftThree);
             width: var(--lignThree-width);
             overflow: hidden;
             .lign{
@@ -83,7 +150,7 @@
             }
         }
         .lignFourContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignFour-width)) / 2);
+            margin-left: var(--marginLeftFour);
             width: var(--lignFour-width);
             overflow: hidden;
             .lign{
@@ -91,7 +158,7 @@
             }
         }
         .lignFiveContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignFive-width)) / 2);
+            margin-left: var(--marginLeftFive);
             width: var(--lignFive-width);
             overflow: hidden;
             .lign{
@@ -99,7 +166,7 @@
             }
         }
         .lignSixContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignSix-width)) / 2);
+            margin-left: var(--marginLeftSix);
             width: var(--lignSix-width);
             overflow: hidden;
             .lign{
@@ -107,7 +174,7 @@
             }
         }
         .lignSevenContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignSeven-width)) / 2);
+            margin-left: var(--marginLeftSeven);
             width: var(--lignSeven-width);
             overflow: hidden;
             .lign{
@@ -115,7 +182,7 @@
             }
         }
         .lignEightContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignEight-width)) / 2);
+            margin-left: var(--marginLeftHeight);
             width: var(--lignEight-width);
             overflow: hidden;
             .lign{
@@ -123,7 +190,7 @@
             }
         }
         .lignNineContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignNine-width)) / 2);
+            margin-left: var(--marginLeftNine);
             width: var(--lignNine-width);
             overflow: hidden;
             .lign{
@@ -131,7 +198,7 @@
             }
         }
         .lignTenContainer{
-            margin-left: calc((var(--lignContainer-width) - var(--lignTen-width)) / 2);
+            margin-left: var(--marginLeftTen);
             width: var(--lignTen-width);
             overflow: hidden;
             .lign{
@@ -143,19 +210,23 @@
         z-index: 2;
         overflow: hidden;
         width: 0;
-        
         img{
             filter: grayscale(100%);
-            min-width: 630px;
+            width: 100%;
             height: 320px;
-            height: 30%;
             transform: translatey(350px);
         }
     } 
 }
 
 .visible{
+    // justify-content: space-between;
     .lignContainer{
+        // width: 50%;
+        .containerAnimate{
+            margin-right: auto;
+            margin-left: auto;
+        }
         .container{
             animation-name: visibleTransitionLign;
             animation-duration: 0.5s;
@@ -201,6 +272,10 @@
             animation-delay: 1.3s;
             animation-fill-mode: forwards;
             animation-timing-function: ease-in-out;
+            object-fit: cover;
+        }
+        @media screen and (max-width: 1400px) {
+            display: none;
         }
     }
 }
@@ -221,7 +296,7 @@
 
 @keyframes visibleTransitionLign {
     100%{
-        margin-left: 0;
+        margin-left: var(--marginTransition);
     }
 }
 
@@ -252,7 +327,7 @@
 
 @keyframes transformImgContainer {
     100%{
-        width: 50%;
+        width: 45%;
     }
 }
 
