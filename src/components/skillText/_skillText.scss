@@ -2,16 +2,16 @@
 
 :root{
     // All lign
-    --lignOne-width: 568px;
-    --lignTwo-width: 596px;
-    --lignThree-width: 585px;
-    --lignFour-width: 598px;
-    --lignFive-width: 610px;
-    --lignSix-width: 583px;
-    --lignSeven-width: 641px;
-    --lignEight-width: 635px;
-    --lignNine-width: 598px;
-    --lignTen-width: 576px;
+    --lignOne-width: 607px;
+    --lignTwo-width: 674px;
+    --lignThree-width: 624px;
+    --lignFour-width: 616px;
+    --lignFive-width: 645px;
+    --lignSix-width: 656px;
+    --lignSeven-width: 684px;
+    --lignEight-width: 689px;
+    --lignNine-width: 670px;
+    --lignTen-width: 669px;
 
     // lignContainer
     --lignContainer-width: 100%;
@@ -58,6 +58,7 @@
                 animation-delay: 1s;
                 animation-fill-mode: forwards;
                 animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
             }
         }
         .lignOneContainer{
@@ -142,13 +143,6 @@
         z-index: 2;
         overflow: hidden;
         width: 0;
-        // background-image: url("../../assets/me/pexels-italo-melo-2379005.jpg");
-        // opacity: 0;
-        // width: 0;
-        // height: 0;
-        // background-position: 25% 40%;
-        // transition: width ease-in-out 0.9s, height 0.4s ease-in-out 0.7s;
-        // background-size: cover;
         
         img{
             filter: grayscale(100%);
@@ -157,6 +151,11 @@
             transform: translatey(350px);
         }
     } 
+    .imgContainerNoAnimation{
+        filter: grayscale(100%);
+        min-width: 725px;
+        min-height: 320px;
+    }
 }
 
 .visible{
@@ -206,6 +205,14 @@
             animation-delay: 1.3s;
             animation-fill-mode: forwards;
             animation-timing-function: ease-in-out;
+        }
+    }
+}
+
+.noAnimation{
+    .lignContainer{
+        .container{
+            margin-left: 0;
         }
     }
 }
@@ -264,5 +271,14 @@
 @keyframes transformImg {
     100%{
         transform: translatey(0);
+    }
+}
+
+@keyframes transformBlockImgContainer{
+    0%{
+        transform: translatey(700px);
+    }
+    100%{
+        transform: translateY(0);
     }
 }
