@@ -61,7 +61,7 @@
         justify-content: space-between;
         .skill{
             font-size: $pSecondary;
-            font-weight: 100;
+            font-weight: 800;
         }
         .buttonContainer{
             cursor: pointer;
@@ -98,6 +98,9 @@
                 max-width: 500px;
                 font-size: $h2;
                 opacity: 0;
+                transition-property: color;
+                transition-duration: 1s;
+                transition-timing-function: ease-in-out;
             }
         }
     }
