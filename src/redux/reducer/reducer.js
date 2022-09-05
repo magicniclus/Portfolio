@@ -3,7 +3,8 @@ const initState = {
     cursorDifference: false,
     projectIsOpen: false,
     color: "#EDEAE6",
-    textColor: "#373634"
+    textColor: "#373634",
+    mobilSize: false
 }
 
 const reducer = (state = initState, action) => {
@@ -50,6 +51,11 @@ const reducer = (state = initState, action) => {
                 textColor: action.payload
             }
           
+        case "updateScreenSize":
+            return{
+                ...state,
+                mobilSize: action.payload
+            }    
 
         default: return state
     }
