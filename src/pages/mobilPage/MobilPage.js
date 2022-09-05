@@ -3,9 +3,19 @@ import moi from "../../assets/me/moi-mobil.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import "./_mobilPage.scss";
+import { useEffect } from 'react';
 
 const MobilPage = () => {
   let color = "#EDEAE6";
+  let colorTwo = "#898A52";  
+
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  }, [])    
+  
+  const sendMail = ()=>{
+    window.open('mailto:casteranicolas.contact@gmail.com?subject=Do%20we%20work%20together?&body=Hi%20Nicolas!')
+}
 
   return (
       <div className='mobilMain'>
@@ -16,9 +26,9 @@ const MobilPage = () => {
             </div>  
             <div className="leftConter_bottomContainer">
               <ul>
-                <li>Github. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={color} /></li>
-                <li>Tweeter. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={color} /></li>
-                <li>Linkedin. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={color} /></li>
+                <li onClick={()=> window.open("https://github.com/magicniclus")}>Github. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={color} /></li>
+                <li onClick={()=> window.open("https://twitter.com/CasteranicolasC")}>Tweeter. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={color} /></li>
+                <li onClick={()=> window.open("https://www.linkedin.com/in/nicolas-castera-771a45a6/")}>Linkedin. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={color} /></li>
               </ul>
             </div>  
           </div>  
@@ -44,7 +54,7 @@ const MobilPage = () => {
               <p>Optimal experience in Desktop</p>
             </div>
             <div className="bottomContainer_right">
-              <button>Contact</button>
+              <button onClick={sendMail}>Contact. <FontAwesomeIcon icon={faArrowUpRightFromSquare} color={colorTwo} /></button>
             </div>
           </div>
         </main>
