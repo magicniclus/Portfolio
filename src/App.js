@@ -38,7 +38,7 @@ function App() {
   const useIsMobile = () => {
     useEffect(() => {
         const onResize = () => {
-            if(window.innerWidth <= 1024){
+            if(window.innerWidth < 1024){
               dispatch(updateScreenSize(true))
             }else{
               dispatch(updateScreenSize(false))
@@ -57,7 +57,7 @@ function App() {
   useIsMobile()
 
   useEffect(() => {
-          if(window.innerWidth <= 1024){
+          if(window.innerWidth < 1024){
             dispatch(updateScreenSize(true))
           }else{
             dispatch(updateScreenSize(false))
