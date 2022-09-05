@@ -1,2 +1,99 @@
 @import "../../styles/settings.scss";
 
+.mobilMain{
+    background-color: $darkPrimary;
+    color: $clearPrimary;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .mobilHeader{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        height: 575px;
+        width: 97vw;
+        @media screen and (max-width: 375px) {
+            height: 550px;
+        }
+        @media screen and (max-width: 320px) {
+            height: 520px;
+        }
+        .leftContainer{
+            width: 17%;
+            height: 390px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .leftConter_topContainer{
+                font-size: $littleP;
+            }
+            .leftConter_bottomContainer{
+                margin-bottom: 2rem;
+                ul{
+                    text-decoration: none;
+                    list-style-type: none;
+                    font-size: $littleP;
+                }
+            }
+        }
+        .rightContainer{
+            height: 390px;
+            width: 83%;
+            // max-width: 343px;
+            
+            img{
+                height: 100%;
+                width: 100%;
+                filter: grayscale(1);
+                object-fit: cover;
+                border-radius: 0 30px 0 0;
+            }
+        }
+        .bottomContainer{
+            // display: none;
+            max-width: 420px;
+            font-size: $littleH1;
+            position: absolute;
+            bottom: -2%;
+            left: 0;
+            h1{
+                font-weight: 400;
+            }
+        }
+    }
+    .mobilMain{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 97vw;
+        .topContainer{
+            max-width: 80%;
+            p{
+                font-size: 20px;
+                text-align: justify;
+            }
+        }
+        .bottomContainer{
+            margin-top: 200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            .bottomContainer_left{
+                font-size: $littleP;
+                font-weight: 100;
+            }
+            .bottomContainer_right{
+                button{
+                    background: none;
+                    border: none;
+                    color: $secondaryYellow;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
