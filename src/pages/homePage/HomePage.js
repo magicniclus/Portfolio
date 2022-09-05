@@ -340,9 +340,6 @@ const HomePage = () => {
                         <div className="buttonContainer">
                             <button ref={buttonFour} className="reseaux linkedin" onClick={()=> window.open("https://www.linkedin.com/in/nicolas-castera-771a45a6/")}>Linkedin</button>
                         </div>
-                        {/* <div className="buttonContainer">
-                            <button ref={buttonTwo} className="reseaux instagram" onClick={()=> window.open("")}>Instagram</button>
-                        </div> */}
                     </div>
                     <div className="contactContainer">
                         <div className="buttonContainer">
