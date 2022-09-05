@@ -48,4 +48,3 @@ export let projects = [
         link: "https://github.com/magicniclus/magicniclus-NicolasCastera_11_06052021"
     }
 ]
-
