@@ -41,3 +41,10 @@ export const changeTextColor = payload => {
         payload: payload
     }
 }
+
+export const updateScreenSize = payload => {
+    return{
+        type: "updateScreenSize", 
+        payload: payload
+    }
+}
