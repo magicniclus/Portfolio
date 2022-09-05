@@ -250,11 +250,7 @@ const HomePage = () => {
                     gsap.to(window, { duration: 1, scrollTo: locationTwo, ease: "power1.out" });
                 },
                 onUp: () => {
-                    if(!projectIsOpen){
                         gsap.to(window, { duration: 1, scrollTo: locationOne, ease: "power1.out" });
-                    }else{
-                        gsap.to(window, { duration: 0.1, scrollTo: locationTwo, ease: "power1.out" });
-                    }
                 },
                 tolerance: 10,
                 preventDefault: true,
