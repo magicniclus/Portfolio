@@ -12,14 +12,8 @@ import { homePageLoading } from './redux/actions/actions';
 
 
 function App() {
-  
-  let cursor = useRef()
-
-  
   const isLoading = useSelector(state => state.isLoading)
   const projectIsOpen = useSelector(state => state.projectIsOpen)
-  
-  const cursorUpdate = useSelector(state=>state.cursorDifference)
 
   const mobilSize = useSelector(state => state.mobilSize)
   
@@ -92,12 +86,8 @@ function App() {
     }
   }, [isLoading]) 
 
-  const changeBodyStyle = ()=>{
-
-  }
-
   return (
-    <div className="app" style={projectIsOpen || isLoading ? {height: '100vh', overflow: "hidden"} : {height: '100%', overflow: "auto"}}>
+    <div className="app" style={(projectIsOpen || isLoading) && !mobilSize? {height: '100vh', overflow: "hidden"} : {height: '100%', overflow: "auto"}}>
       <BrowserRouter >
         <Routes>
           <Route path="/accueil" element={<HomePage />}/>
