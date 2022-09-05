@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef  } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import "./_skillText.scss"
-import moi from "../../assets/me/moi-optimizate.jpg"
+import moi from "../../assets/me/me-desktop.jpg"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
