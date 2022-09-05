@@ -48,14 +48,14 @@ const HomePage = () => {
     const textColor = useSelector(state => state.textColor);
 
     // Manage load
-    useEffect(()=>{
-        window.addEventListener('load', (event) => {
-            setTimeout(()=>{
-                dispatch(homePageLoading())
-                window.scrollTo(0, 0);
-            }, 5000)
-        });
-    })
+    // useEffect(()=>{
+    //     window.addEventListener('load', (event) => {
+    //         setTimeout(()=>{
+    //             dispatch(homePageLoading())
+    //             window.scrollTo(0, 0);
+    //         }, 5000)
+    //     });
+    // })
 
     //TL Manage scrolltrigger
     useEffect(() => {
