@@ -34,7 +34,7 @@
                 }
                 span{
                     font-size: $btn;
-                    margin-right: 5rem;
+                    margin-right:clamp(8px, 3vw, 5rem);
                 }
                 svg, span{
                     transform: translateY(30px);

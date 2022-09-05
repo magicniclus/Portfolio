@@ -20,14 +20,15 @@ $primaryReve: #48221b;
 
 //******** Font-Size ********//
 $h1: clamp(20px, 6vw, 64px);
-$h2: clamp(14px, 3vw, 32px);
+$h2: clamp(14px, 2.4vw, 32px);
 $h3: 36px;
 $h3: 96px;
-$p: 24px; 
-$pSecondary: 12px;
-$btn: 24px;
+$p: clamp(18px, 1.5vw, 24px); 
+$pSecondary: clamp(6px, 1vw, 12px);
+$btn: clamp(20px, 1.5vw, 24px);
 $span: 48px;
 $btnTwo:  clamp(16px, 3vw, 36px);
+$bigTitle: clamp(100px, 7vw, 135px);
 
 
 //******** Font-Weight ********//

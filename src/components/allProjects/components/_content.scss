@@ -2,7 +2,8 @@
 
 .contentContainer{
     width: calc(100% - 500px);
-    height: 75vh;
+    // height: 75vh;
+    height: clamp(15px,33vw, 65vh);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -22,6 +23,7 @@
             display: flex;
             overflow: hidden;
             height: 170px;
+            height: clamp(90px, 10vw, 170px);
             .letterTitleContainer{
                 opacity: 0;
                 display: flex;
@@ -29,7 +31,7 @@
                 align-items: center;
                 overflow: hidden;
                 span{
-                    font-size: 135px;
+                    font-size: $bigTitle;
                 }
             }
         }
