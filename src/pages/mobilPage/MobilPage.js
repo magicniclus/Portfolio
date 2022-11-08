@@ -1,5 +1,5 @@
 import React from 'react';
-import moi from "../../assets/me/me-mobil.jpg";
+import moi from "../../assets/me/profilPicture.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import "./_mobilPage.scss";
