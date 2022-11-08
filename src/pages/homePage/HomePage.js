@@ -335,7 +335,7 @@ const HomePage = () => {
                             <button ref={buttonOne} className="reseaux github" onClick={()=> window.open("https://github.com/magicniclus")}>Github</button>
                         </div>
                         <div className="buttonContainer">
-                            <button ref={buttonThree} className="reseaux twitter" onClick={()=> window.open("https://twitter.com/CasteranicolasC")}>Tweeter</button>
+                            <button ref={buttonThree} className="reseaux twitter" onClick={()=> window.open("https://twitter.com/CasteranicolasC")}>Twitter</button>
                         </div>
                         <div className="buttonContainer">
                             <button ref={buttonFour} className="reseaux linkedin" onClick={()=> window.open("https://www.linkedin.com/in/nicolas-castera-771a45a6/")}>Linkedin</button>
